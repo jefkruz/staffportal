@@ -151,8 +151,9 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="overflow-auto" style="max-height: 550px;">
-                                        <ul class="listview image-listview media flush">
+
                                             @foreach($meetings as $meeting)
+                                            <ul class="listview image-listview media flush">
                                                 <li>
                                                     <div class="card" >
 
@@ -167,8 +168,9 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                            </ul>
                                             @endforeach
-                                        </ul>
+
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +255,9 @@
         const player = videojs('video', {
             controls: true,
             fluid: true,
-            liveui: true
+            liveui: true,
+            autoplay: true,
+            loop: true
         });
         player.on('contextmenu', function (e) {
             // Prevent the default right-click context menu
