@@ -69,81 +69,102 @@
                                     <div class="tab-content">
 
                                         <!-- feed -->
+
                                         <div class="tab-pane fade show active" id="feed" role="tabpanel">
                                             <div class="mt-2 p-2 pt-0 pb-0">
-                                                <div class="row">
+
+                                                <form>
+                                                  <div class="row">
                                                     <form>
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="name5">Name</label>
-                                                                <input type="text" class="form-control" id="name5" placeholder="Enter your name"
-                                                                       autocomplete="off">
-                                                                <i class="clear-input">
-                                                                    <ion-icon name="close-circle"></ion-icon>
-                                                                </i>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="city5">Title</label>
+                                                                    <select class="form-control form-select" id="city5">
+                                                                        <option value="">--Select--</option>
+                                                                        <option value="1">New York City</option>
+                                                                        <option value="2">Austin</option>
+                                                                        <option value="3">Colorado</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
-
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="email5">E-mail</label>
-                                                                <input type="email" class="form-control" id="email5" placeholder="E-mail address"
-                                                                       autocomplete="off">
-                                                                <i class="clear-input">
-                                                                    <ion-icon name="close-circle"></ion-icon>
-                                                                </i>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="name5">Name</label>
+                                                                    <input type="text" class="form-control" id="name5" placeholder="Enter your name"
+                                                                           autocomplete="off">
+                                                                    <i class="clear-input">
+                                                                        <ion-icon name="close-circle"></ion-icon>
+                                                                    </i>
+                                                                </div>
                                                             </div>
                                                         </div>
-
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="city5">City</label>
-                                                                <select class="form-control form-select" id="city5">
-                                                                    <option value="0">Select a city</option>
-                                                                    <option value="1">New York City</option>
-                                                                    <option value="2">Austin</option>
-                                                                    <option value="3">Colorado</option>
-                                                                </select>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="email5">E-mail</label>
+                                                                    <input type="email" class="form-control" id="email5" placeholder="E-mail address"
+                                                                           autocomplete="off">
+                                                                    <i class="clear-input">
+                                                                        <ion-icon name="close-circle"></ion-icon>
+                                                                    </i>
+                                                                </div>
                                                             </div>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="city5">City</label>
+                                                                    <select class="form-control form-select" id="city5">
+                                                                        <option value="0">Select a city</option>
+                                                                        <option value="1">New York City</option>
+                                                                        <option value="2">Austin</option>
+                                                                        <option value="3">Colorado</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
 
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="password5">Password</label>
-                                                                <input type="password" class="form-control" id="password5" placeholder="Type a password"
-                                                                       autocomplete="off">
-                                                                <i class="clear-input">
-                                                                    <ion-icon name="close-circle"></ion-icon>
-                                                                </i>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="phone5">Phone</label>
-                                                                <input type="tel" class="form-control" id="phone5" placeholder="Enter your phone number">
-                                                                <i class="clear-input">
-                                                                    <ion-icon name="close-circle"></ion-icon>
-                                                                </i>
-                                                            </div>
-                                                        </div>
+                                                         <div class="col-md-6">
+                                                             <div class="form-group boxed">
+                                                                 <div class="input-wrapper">
+                                                                     <label class="form-label" for="password5">Password</label>
+                                                                     <input type="password" class="form-control" id="password5" placeholder="Type a password"
+                                                                            autocomplete="off">
+                                                                     <i class="clear-input">
+                                                                         <ion-icon name="close-circle"></ion-icon>
+                                                                     </i>
+                                                                 </div>
+                                                             </div>
 
-                                                        <div class="form-group boxed">
-                                                            <div class="input-wrapper">
-                                                                <label class="form-label" for="address5">Address</label>
-                                                                <textarea id="address5" rows="2" class="form-control"></textarea>
-                                                                <i class="clear-input">
-                                                                    <ion-icon name="close-circle"></ion-icon>
-                                                                </i>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                         </div>
+                                                         <div class="col-md-6">
+                                                             <div class="form-group boxed">
+                                                                 <div class="input-wrapper">
+                                                                     <label class="form-label" for="phone5">Phone</label>
+                                                                     <input type="tel" class="form-control" id="phone5" placeholder="Enter your phone number">
+                                                                     <i class="clear-input">
+                                                                         <ion-icon name="close-circle"></ion-icon>
+                                                                     </i>
+                                                                 </div>
+                                                             </div>
 
-                                                </div>
+                                                         </div>
+                                                     </div>
+                                                </form>
+
+
                                             </div>
-                                            <div class="p-2 pt-0 pb-0">
-                                                <a href="#" class="btn btn-primary btn-block">More Photo</a>
+                                            <div class="p-2 pt-0 pb-0 mt-2">
+                                                <button href="#" class="btn btn-primary btn-block">Submit</button>
                                             </div>
+
                                         </div>
                                         <!-- * feed -->
 
