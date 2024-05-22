@@ -36,7 +36,7 @@
 
             <div class="login-form mt-1">
                 <div class="section">
-                    <img src="{{url('assets/img/login.png')}}" alt="image" class="form-image">
+                    <img src="{{url('assets/img/icon/144x144.png')}}" alt="image" class="form-image">
                 </div>
                 <div class="section mt-1">
                     <h1>Welcome to LW Staff Portal</h1>
