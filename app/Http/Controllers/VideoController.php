@@ -104,6 +104,7 @@ class VideoController extends Controller
 
     public function addComment($id, $slug, Request $request)
     {
+
         $request->validate([
             'comment' => ['required', 'regex:/^[^<>]*$/'], // Disallow '<' and '>' characters
         ],
@@ -115,10 +116,10 @@ class VideoController extends Controller
 
         $comment = new VideoComment();
         $comment->video_id = $video->id;
-        $comment->user_id = $user->id;
-        $comment->name = $user->name;
+        $comment->portal_id = $user->portalID;
+        $comment->name = $user->fullname();
         $comment->email = $user->email;
-        $comment->picture = $user->image;
+        $comment->picture = $user->picturePath;
         $comment->comment = $request->comment;
         $comment->save();
 

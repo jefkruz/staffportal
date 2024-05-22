@@ -10,7 +10,7 @@ class Video extends Model
     use HasFactory;
     public function comments()
     {
-        return VideoComment::where('video_id', $this->id)->get();
+        return VideoComment::where('video_id', $this->id)->latest()->get();
     }
 
     public function scopeOfType($query, $isTeamHead)
