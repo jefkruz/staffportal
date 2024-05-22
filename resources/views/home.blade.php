@@ -67,7 +67,7 @@
                                         Information Center
                                     </h2>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body border-top">
                                     <div class="row">
 
                                         @foreach($announcements as  $post)
@@ -256,7 +256,7 @@
             controls: true,
             fluid: true,
             liveui: true,
-            autoplay: true,
+            // autoplay: true,
             loop: true
         });
         player.on('contextmenu', function (e) {

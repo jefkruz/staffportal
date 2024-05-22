@@ -23,6 +23,7 @@ class StaffController extends Controller
         $data['page_title'] = 'Your Profile';
 //        $data['roles'] = $roles;
         $data['profile_menu'] = true;
+        $data['user'] = Session::get('user');
         $data['families'] = JobFamily::all();
         return view('profile', $data);
     }

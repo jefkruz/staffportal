@@ -3,6 +3,7 @@ $dash_menu = (isset($dash_menu) && $dash_menu == true) ? 'active' : '';
 $profile_menu = (isset($profile_menu) && $profile_menu == true) ? 'active' : '';
 $meet_menu = (isset($meet_menu) && $meet_menu == true) ? 'active' : '';
 $live_menu = (isset($live_menu) && $live_menu == true) ? 'active' : '';
+$videos_menu = (isset($videos_menu) && $videos_menu == true) ? 'active' : '';
 $isDirector = session('user')->isDirector();
 $isDeptHead = session('user')->isDepartmentHead();
 ?>
@@ -26,6 +27,7 @@ $isDeptHead = session('user')->isDepartmentHead();
     <!-- BOOTSTRAP CSS -->
 
     @yield('styles')
+
     <link id="style" href="{{url('assets/css/bootstrap.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
@@ -104,10 +106,16 @@ $isDeptHead = session('user')->isDepartmentHead();
                 <strong>Profile</strong>
             </div>
         </a>
-        <a href="#" class="item" {{$meet_menu}}>
+{{--        <a href="#" class="item" {{$meet_menu}}>--}}
+{{--            <div class="col">--}}
+{{--                <ion-icon name="tv-outline"></ion-icon>--}}
+{{--                <strong>BE TV</strong>--}}
+{{--            </div>--}}
+{{--        </a>--}}
+        <a href="{{route('videos')}}" class="item" {{$videos_menu}}>
             <div class="col">
-                <ion-icon name="tv-outline"></ion-icon>
-                <strong>BE TV</strong>
+                <ion-icon name="play-circle-outline"></ion-icon>
+                <strong>videos</strong>
             </div>
         </a>
         <a href="{{route('stdl')}}" class="item">
@@ -170,16 +178,7 @@ $isDeptHead = session('user')->isDepartmentHead();
                     </a>
                 </li>
 
-                <li>
-                    <a href="#" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="tv-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>Blue Elite Tv</div>
-                        </div>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{route('posts')}}" class="item">
                         <div class="icon-box bg-primary">
@@ -198,6 +197,16 @@ $isDeptHead = session('user')->isDepartmentHead();
                         </div>
                         <div class="in">
                             <div>STDL</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('videos')}}" class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="play-circle-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>Videos</div>
                         </div>
                     </a>
                 </li>
@@ -259,6 +268,8 @@ $isDeptHead = session('user')->isDepartmentHead();
     <script src="{{url('assets/js/bootstrap.js')}}"></script>
 
 @yield('scripts')
+
+
     <!-- Ionicons -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <!-- Splide -->

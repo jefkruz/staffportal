@@ -90,15 +90,15 @@ class VideoController extends Controller
         $data['page_title'] = $video->name;
 
         $data['video'] = $video;
-        return view('influencers.watch_video', $data);
+        return view('watch-video', $data);
     }
 
     public function showVideos()
     {
 //        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $data['page_title'] = 'Videos';
-        $data['videos'] = Video::latest('created_at')->get();
-        return view('influencers.videos', $data);
+        $data['videos'] = Video::latest('created_at')->paginate(9);
+        return view('videos', $data);
     }
 
 

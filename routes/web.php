@@ -50,6 +50,10 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::patch('profile/ministry', [StaffController::class, 'updateMinistryProfile'])->name('updateMinistryProfile');
     Route::get('be-tv/watch/{code}', [MeetingsController::class, 'attendMeeting'])->name('attendMeeting');
     Route::get('be-tv', [MeetingsController::class, 'showMeetings'])->name('meetings');
+    Route::get('videos', [VideoController::class, 'showVideos'])->name('videos');
+    Route::post('videos/{id}/{slug}', [VideoController::class, 'addComment']);
+    Route::get('videos/{id}/{slug}', [VideoController::class, 'viewVideo'])->name('viewVideo');
+
 
 });
 

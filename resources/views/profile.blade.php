@@ -14,11 +14,11 @@
                             <div class="card-body">
                                 <div class="profile-head">
                                     <div class="avatar">
-                                        <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
+                                        <img src="{{url($user->picturePath)}}" alt="avatar" class="imaged w64 rounded">
                                     </div>
                                     <div class="in">
-                                        <h3 class="name">Julian Gruber</h3>
-                                        <h5 class="subtext">Designer</h5>
+                                        <h3 class="name">{{ucwords($user->fullname())}}</h3>
+                                        <h5 class="subtext">{{ucwords($user->department->deptName)}}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -45,19 +45,19 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#friends" role="tab">
                                                     <ion-icon name="people-outline"></ion-icon>
-                                                    <strong>BASIC</strong>
+                                                    <strong>FAMILY</strong>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#bookmarks" role="tab">
                                                     <ion-icon name="bookmark-outline"></ion-icon>
-                                                    <strong>BASIC</strong>
+                                                    <strong>ACADEMIC</strong>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#settings" role="tab">
                                                     <ion-icon name="settings-outline"></ion-icon>
-                                                    <strong>BASIC</strong>
+                                                    <strong>MEDICAL</strong>
                                                 </a>
                                             </li>
                                         </ul>
@@ -75,16 +75,20 @@
 
                                                 <form>
                                                   <div class="row">
-                                                    <form>
+
                                                         <div class="col-md-6">
                                                             <div class="form-group boxed">
                                                                 <div class="input-wrapper">
                                                                     <label class="form-label" for="city5">Title</label>
-                                                                    <select class="form-control form-select" id="city5">
-                                                                        <option value="">--Select--</option>
-                                                                        <option value="1">New York City</option>
-                                                                        <option value="2">Austin</option>
-                                                                        <option value="3">Colorado</option>
+                                                                    <select class="form-control form-select country"  required name="title" >
+                                                                        <option value="" {{ !$user->title ? 'selected' : '' }}>--Select--</option>
+                                                                        <option value="Brother" {{ $user->title == 'Brother' ? 'selected' : '' }}>Brother</option>
+                                                                        <option value="Sister" {{ $user->title == 'Sister' ? 'selected' : '' }}>Sister</option>
+                                                                        <option value="Pastor" {{ $user->title == 'Pastor' ? 'selected' : '' }}>Pastor</option>
+                                                                        <option value="Deacon" {{ $user->title == 'Deacon' ? 'selected' : '' }}>Deacon</option>
+                                                                        <option value="Deaconess" {{ $user->title == 'Deaconess' ? 'selected' : '' }}>Deaconess</option>
+                                                                        <option value="Evangelist" {{ $user->title == 'Evangelist' ? 'selected' : '' }}>Evangelist</option>
+                                                                        <option value="Reverend" {{ $user->title == 'Reverend' ? 'selected' : '' }}>Reverend</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -92,8 +96,8 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group boxed">
                                                                 <div class="input-wrapper">
-                                                                    <label class="form-label" for="name5">Name</label>
-                                                                    <input type="text" class="form-control" id="name5" placeholder="Enter your name"
+                                                                    <label class="form-label" for="name5">First Name</label>
+                                                                    <input type="text" class="form-control"  disabled required  name="firstName" value="{{$user->firstName}}"
                                                                            autocomplete="off">
                                                                     <i class="clear-input">
                                                                         <ion-icon name="close-circle"></ion-icon>
@@ -104,8 +108,32 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group boxed">
                                                                 <div class="input-wrapper">
-                                                                    <label class="form-label" for="email5">E-mail</label>
-                                                                    <input type="email" class="form-control" id="email5" placeholder="E-mail address"
+                                                                    <label class="form-label" for="name5">Last Name</label>
+                                                                    <input type="text" class="form-control" disabled  name="lastName" value="{{$user->lastName}}"
+                                                                           autocomplete="off">
+                                                                    <i class="clear-input">
+                                                                        <ion-icon name="close-circle"></ion-icon>
+                                                                    </i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="name5">Other Names</label>
+                                                                    <input type="text" class="form-control"   name="otherName" value="{{$user->otherName}}"
+                                                                           autocomplete="off">
+                                                                    <i class="clear-input">
+                                                                        <ion-icon name="close-circle"></ion-icon>
+                                                                    </i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="email5"> Official E-mail</label>
+                                                                    <input type="email" class="form-control" disabled name="emailAddress" value="{{$user->emailAddress}}" placeholder="E-mail address"
                                                                            autocomplete="off">
                                                                     <i class="clear-input">
                                                                         <ion-icon name="close-circle"></ion-icon>
@@ -114,6 +142,55 @@
                                                             </div>
 
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group boxed">
+                                                                <div class="input-wrapper">
+                                                                    <label class="form-label" for="email5"> Private E-mail</label>
+                                                                    <input type="email" class="form-control"  name="emailAddress" value="{{$user->emailAddress}}" placeholder="E-mail address"
+                                                                           autocomplete="off">
+                                                                    <i class="clear-input">
+                                                                        <ion-icon name="close-circle"></ion-icon>
+                                                                    </i>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                      <div class="col-md-6">
+                                                          <div class="form-group boxed">
+                                                              <div class="input-wrapper">
+                                                                  <label class="form-label" for="phone5">Portal ID</label>
+                                                                  <input type="text" class="form-control"  name="phoneNum" disabled value="{{$user->portalID}}" >
+                                                                  <i class="clear-input">
+                                                                      <ion-icon name="close-circle"></ion-icon>
+                                                                  </i>
+                                                              </div>
+                                                          </div>
+
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="form-group boxed">
+                                                              <div class="input-wrapper">
+                                                                  <label class="form-label" for="phone5">Phone Number</label>
+                                                                  <input type="text"  inputmode="tel" class="form-control"  name="phoneNum" value="{{$user->phoneNum}}" placeholder="Enter your phone number">
+                                                                  <i class="clear-input">
+                                                                      <ion-icon name="close-circle"></ion-icon>
+                                                                  </i>
+                                                              </div>
+                                                          </div>
+
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <div class="form-group boxed">
+                                                              <div class="input-wrapper">
+                                                                  <label class="form-label" for="phone5">KingsChat Username</label>
+                                                                  <input type="text" class="form-control"  name="kcUsername" disabled value="{{$user->kcUsername}}" >
+                                                                  <i class="clear-input">
+                                                                      <ion-icon name="close-circle"></ion-icon>
+                                                                  </i>
+                                                              </div>
+                                                          </div>
+
+                                                      </div>
                                                         <div class="col-md-6">
 
                                                             <div class="form-group boxed">
@@ -131,31 +208,7 @@
                                                         </div>
 
 
-                                                         <div class="col-md-6">
-                                                             <div class="form-group boxed">
-                                                                 <div class="input-wrapper">
-                                                                     <label class="form-label" for="password5">Password</label>
-                                                                     <input type="password" class="form-control" id="password5" placeholder="Type a password"
-                                                                            autocomplete="off">
-                                                                     <i class="clear-input">
-                                                                         <ion-icon name="close-circle"></ion-icon>
-                                                                     </i>
-                                                                 </div>
-                                                             </div>
 
-                                                         </div>
-                                                         <div class="col-md-6">
-                                                             <div class="form-group boxed">
-                                                                 <div class="input-wrapper">
-                                                                     <label class="form-label" for="phone5">Phone</label>
-                                                                     <input type="tel" class="form-control" id="phone5" placeholder="Enter your phone number">
-                                                                     <i class="clear-input">
-                                                                         <ion-icon name="close-circle"></ion-icon>
-                                                                     </i>
-                                                                 </div>
-                                                             </div>
-
-                                                         </div>
                                                      </div>
                                                 </form>
 
@@ -407,4 +460,18 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.country').select2();
+        });
+    </script>
 @endsection
