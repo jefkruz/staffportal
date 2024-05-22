@@ -87,7 +87,7 @@ class VideoController extends Controller
 //        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $video = Video::whereIdAndSlug($id, $slug)->firstOrFail();
 
-        $data['page_title'] = $video->name;
+        $data['page_title'] = 'Watch Video';
 
         $data['video'] = $video;
         return view('watch-video', $data);

@@ -32,7 +32,7 @@ class PostsController extends Controller
         $resource = Announcement::whereId($id)->firstOrFail();
 //        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $data['post'] = $resource;
-        $data['page_title'] = $resource->title;
+        $data['page_title'] = 'View Post';
         $data['posts_menu'] = true;
         return view('view-post', $data);
     }
