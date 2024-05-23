@@ -89,7 +89,7 @@ $isDeptHead = session('user')->isDepartmentHead();
 
 
     @yield('content')
-    @if(Session::get('user')->cateID ==8)
+
 
         <!-- App Sidebar -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarPanel">
@@ -147,7 +147,31 @@ $isDeptHead = session('user')->isDepartmentHead();
                             </div>
                         </a>
                     </li>
+                    <li>
 
+                        <a href="{{route('videos')}}" class="item" >
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="play-circle-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Videos</div>
+                                {{--                            <span class="badge badge-danger">5</span>--}}
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('stdl')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="newspaper-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>STDL</div>
+                                {{--                            <span class="badge badge-danger">5</span>--}}
+                            </div>
+
+                        </a>
+                    </li>
 
                     <li>
                         <div class="item">
@@ -198,7 +222,7 @@ $isDeptHead = session('user')->isDepartmentHead();
         </div>
         <!-- * App Sidebar -->
 
-    @else
+
 
         <!-- App Bottom Menu -->
         <div class="appBottomMenu d-lg-none  infinite-menu" >
@@ -255,7 +279,7 @@ $isDeptHead = session('user')->isDepartmentHead();
         </div>
         <!-- * App Bottom Menu -->
 
-    @endif
+{{--    @endif--}}
 
 
 
@@ -263,7 +287,7 @@ $isDeptHead = session('user')->isDepartmentHead();
     <!-- Bootstrap -->
 {{--<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>--}}
     <!-- JQUERY JS -->
-    <script src="{{url('assets/js/jquery.min.js')}}"></script>
+{{--    <script src="{{url('assets/js/jquery.min.js')}}"></script>--}}
 
     <script src="{{url('assets/js/popper.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap.js')}}"></script>
