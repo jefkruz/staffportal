@@ -36,10 +36,10 @@
 
             <div class="login-form mt-1">
                 <div class="section">
-                    <img src="{{url('assets/img/icon/144x144.png')}}" alt="image" class="form-image">
+                    <img src="{{url('assets/images/login.png')}}" alt="image" class="form-image">
                 </div>
                 <div class="section mt-1">
-                    <h1>Welcome to LW Staff Portal</h1>
+                    <h2>Welcome to LW Staff Portal</h2>
 {{--                    <h4>Please put in your credentials to log in</h4>--}}
                 </div>
                 <div class="section mt-1 mb-5">
