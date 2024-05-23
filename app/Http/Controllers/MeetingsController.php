@@ -49,7 +49,7 @@ class MeetingsController extends Controller
         $ev->start_date = date("Y-m-d H:i:s", ($request->start_date / 1000));
         $ev->end_date = date("Y-m-d H:i:s", ($request->end_date / 1000));
         $ev->accessibility = $request->accessibility;
-        $ev->unique_code = 'LWSP-' . time();
+        $ev->unique_code = 'LWSP' . time();
         $ev->save();
 
 //        $n = new WebNotificationsController();
