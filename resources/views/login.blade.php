@@ -44,6 +44,7 @@
                 </div>
                 <div class="section mt-1 mb-5">
                     @include('includes.alerts')
+                    <br>
                     <form method="POST">
                         @csrf
                         <div class="form-group boxed">

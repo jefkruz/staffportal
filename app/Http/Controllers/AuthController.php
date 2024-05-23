@@ -47,14 +47,17 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+
         $request->validate([
             'portal_id' => 'required',
             'password' => 'required'
         ]);
 
-        $staff = User::where('portalID', $request->portal_id)->where('password',$request->password)->firstOrFail();
+
+        $staff = User::where('portalID', $request->portal_id)->where('password',$request->password)->first();
 
         if(!$staff){
+
             return back()->withInput()->with('error', 'Incorrect credentials');
         }
 
