@@ -16,7 +16,7 @@ class Meeting extends Model
 
     public function getAttendanceCount()
     {
-        return $this->attendances()->count() + 50;
+        return $this->attendances()->count() ;
     }
 
     public function attending()

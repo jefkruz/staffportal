@@ -19,6 +19,7 @@ $director_menu = isset($director_menu) ? 'active' : '';
 $enrollments_menu = isset($enrollments_menu) ? 'active' : '';
 $analytics_menu = isset($analytics_menu) ? 'active' : '';
 $video_menu = isset($video_menu) ? 'active' : '';
+$stream_menu = isset($stream_menu) ? 'active' : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,6 +155,14 @@ $video_menu = isset($video_menu) ? 'active' : '';
                             <i class="nav-icon fa fa-tv"></i>
                             <p>
                                 Live Meetings
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('streams.index')}}" class="nav-link {{$stream_menu}}">
+                            <i class="nav-icon fa fa-play"></i>
+                            <p>
+                                Stream Links
                             </p>
                         </a>
                     </li>

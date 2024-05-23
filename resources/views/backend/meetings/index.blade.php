@@ -104,7 +104,14 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Stream Link</label>
-                                    <input type="text" class="form-control" name="stream_link" placeholder="Stream Link" required>
+
+                                    <select name="stream_link" class="form-control" required>
+                                        <option value="">--Select stream--</option>
+                                        @foreach($streams as $stream)
+                                        <option value="{{$stream->link}}">{{$stream->name}}</option>
+                                        @endforeach
+
+                                    </select>
                                 </div>
                             </div>
 

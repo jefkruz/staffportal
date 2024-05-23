@@ -58,20 +58,20 @@
                 <a href="{{route('videos.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-{{--        <div class="col-lg-3 col-6">--}}
-{{--            <!-- small box -->--}}
-{{--            <div class="small-box bg-indigo">--}}
-{{--                <div class="inner">--}}
-{{--                    <h3>{{$interactions}}</h3>--}}
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{$streams}}</h3>
 
-{{--                    <p>Live Interactions</p>--}}
-{{--                </div>--}}
-{{--                <div class="icon">--}}
-{{--                    <i class="fa fa-blog"></i>--}}
-{{--                </div>--}}
-{{--                <a href="{{route('interactions.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+                    <p>Stream Links</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-play"></i>
+                </div>
+                <a href="{{route('streams.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
 {{--        <div class="col-lg-3 col-6">--}}
 {{--            <!-- small box -->--}}
 {{--            <div class="small-box bg-warning">--}}

@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Meeting;
 use App\Models\Region;
 use App\Models\Slide;
+use App\Models\Stream;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class HomeController extends Controller
         $data['slides'] = Slide::count();
         $data['regions'] = Region::count();
         $data['videos'] = Video::count();
-//        $data['forums'] = Forum::count();
+        $data['streams'] = Stream::count();
         $data['events'] = Event::count();
         $data['meetings'] = Meeting::count();
 //        $data['assessments'] = Assessment::count();

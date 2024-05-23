@@ -13,13 +13,13 @@ class MeetingsController extends Controller
     public function index()
     {
         $programmes = Meeting::latest()->get();
-//        foreach($programmes as $programme){
-//            $programme->startSeconds = strtotime($programme->start_date);
-//            $programme->endSeconds = strtotime($programme->end_date);
-//        }
+        foreach($programmes as $programme){
+            $programme->startSeconds = strtotime($programme->start_date);
+            $programme->endSeconds = strtotime($programme->end_date);
+        }
         $data['page_title'] = 'Live Programmes';
         $data['programmes'] = $programmes;
-        $data['streams'] = Stream::all();
+        $data['streams'] = Stream::latest()->get();
         $data['meet_menu'] = true;
         return view('backend.meetings.index', $data);
     }
@@ -141,5 +141,39 @@ class MeetingsController extends Controller
         $doc->delete();
 
         return redirect()->back()->with('message', 'Meeting Deleted');
+    }
+
+    public function indexStream()
+    {
+        $data['page_title'] = 'Streams';
+        $data['stream_menu'] = true;
+        $data['streams'] = Stream::all();
+        return view('backend.streams.index', $data);
+    }
+
+    public function storeStream(Request $request)
+    {
+        $request->validate([
+
+            'name' => 'required',
+            'link' => 'required',
+        ]);
+
+        Stream::where('status', 'active')->update(['status' => 'Inactive']);
+
+        $stream = new Stream();
+        $stream->name = $request->name;
+        $stream->link = $request->link;
+        $stream->status = 'active';
+        $stream->save();
+
+        return back()->with('message', 'Stream added');
+    }
+
+    public function deleteStream($id)
+    {
+        $s = Stream::findOrFail($id);
+        $s->delete();
+        return back()->with('message', 'Stream deleted');
     }
 }

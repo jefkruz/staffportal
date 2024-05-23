@@ -182,7 +182,7 @@
                                                           <div class="flex-column">
                                                               {{ucwords($birthday->fullname())}}
                                                               <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
-                                                              <button class="btn btn-sm btn-primary">SEND GREETINGS</button>
+{{--                                                              <button class="btn btn-sm btn-primary">SEND GREETINGS</button>--}}
                                                           </div>
                                                       </div>
                                                   </a>
@@ -231,6 +231,8 @@
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
 @endsection
 @section('scripts')
+
+
     <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 
     <script>

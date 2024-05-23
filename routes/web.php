@@ -132,6 +132,12 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::post('/', [SlidesController::class, 'store'])->name('slides.store');
         Route::delete('{id}', [SlidesController::class, 'delete'])->name('slides.delete');
     });
+
+    Route::group(['prefix' => 'streams'], function(){
+        Route::get('/', [MeetingsController::class, 'indexStream'])->name('streams.index');
+        Route::post('/', [MeetingsController::class, 'storeStream'])->name('streams.store');
+        Route::delete('{id}', [MeetingsController::class, 'deleteStream'])->name('streams.delete');
+    });
 });
 
 Route::get('clear', function() {
