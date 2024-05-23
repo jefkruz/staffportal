@@ -68,41 +68,41 @@
 
                                   <div class="divider mt-2 mb-3"></div>
 
-                                 <div class="section mt-2">
-                                   <h3 class="mb-0">Send a Comment</h3>
-                                   <div class="pt-2 pb-2">
-                                       <form method="post">
-                                           @csrf
-                                           <div class="form-group boxed">
-                                               <div class="input-wrapper">
-                                                   <input type="text" class="form-control" readonly value="{{ucwords(Session::get('user')->fullname())}}">
-                                                   <i class="clear-input">
-                                                       <ion-icon name="close-circle"></ion-icon>
-                                                   </i>
-                                               </div>
-                                           </div>
+{{--                                 <div class="section mt-2">--}}
+{{--                                   <h3 class="mb-0">Send a Comment</h3>--}}
+{{--                                   <div class="pt-2 pb-2">--}}
+{{--                                       <form method="post">--}}
+{{--                                           @csrf--}}
+{{--                                           <div class="form-group boxed">--}}
+{{--                                               <div class="input-wrapper">--}}
+{{--                                                   <input type="text" class="form-control" readonly value="{{ucwords(Session::get('user')->fullname())}}">--}}
+{{--                                                   <i class="clear-input">--}}
+{{--                                                       <ion-icon name="close-circle"></ion-icon>--}}
+{{--                                                   </i>--}}
+{{--                                               </div>--}}
+{{--                                           </div>--}}
 
 
 
-                                           <div class="form-group boxed">
-                                               <div class="input-wrapper">
-                                                   <textarea id="comment" rows="4"  name="comment" class="form-control" placeholder="Comment"></textarea>
-                                                   <i class="clear-input">
-                                                       <ion-icon name="close-circle"></ion-icon>
-                                                   </i>
-                                               </div>
-                                           </div>
+{{--                                           <div class="form-group boxed">--}}
+{{--                                               <div class="input-wrapper">--}}
+{{--                                                   <textarea id="comment" rows="4"  name="comment" class="form-control" placeholder="Comment"></textarea>--}}
+{{--                                                   <i class="clear-input">--}}
+{{--                                                       <ion-icon name="close-circle"></ion-icon>--}}
+{{--                                                   </i>--}}
+{{--                                               </div>--}}
+{{--                                           </div>--}}
 
-                                           <div class="mt-1">
-                                               <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                                   Send
-                                               </button>
-                                           </div>
+{{--                                           <div class="mt-1">--}}
+{{--                                               <button type="submit" class="btn btn-primary btn-lg btn-block">--}}
+{{--                                                   Send--}}
+{{--                                               </button>--}}
+{{--                                           </div>--}}
 
-                                       </form>
+{{--                                       </form>--}}
 
-                                   </div>
-                                 </div>
+{{--                                   </div>--}}
+{{--                                 </div>--}}
 
 
                           </div>
