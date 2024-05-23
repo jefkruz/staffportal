@@ -32,7 +32,7 @@
                        </div>
 
                                   <div class="card-body ">
-                                      <div class="overflow-auto" style="max-height: 300px;">
+{{--                                      <div class="overflow-auto" style="max-height: 300px;">--}}
 
 
 
