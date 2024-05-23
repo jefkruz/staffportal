@@ -43,6 +43,7 @@
 {{--                    <h4>Please put in your credentials to log in</h4>--}}
                 </div>
                 <div class="section mt-1 mb-5">
+                    @include('includes.alerts')
                     <form method="POST">
                         @csrf
                         <div class="form-group boxed">

@@ -251,7 +251,7 @@ $isDeptHead = session('user')->isDepartmentHead();
             <a href="{{route('meetings')}}" class="item" {{$meet_menu}}>
                 <div class="col">
                     <ion-icon name="film-outline"></ion-icon>
-                    <strong>live</strong>
+                    <strong>Live</strong>
                 </div>
             </a>
             <a href="{{route('profile')}}" class="item {{$profile_menu}}" >
