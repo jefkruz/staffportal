@@ -69,8 +69,8 @@ class MeetingsController extends Controller
 //        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $data['page_title'] = 'Live Programmes';
         $data['meet_menu'] = true;
-        $data['meetings'] = $programmes;
-        return view('meetings', $data);
+        $data['programmes'] = $programmes;
+        return view('live', $data);
     }
 
     public function markAttendance(Request $request)
@@ -103,7 +103,7 @@ class MeetingsController extends Controller
         $data['page_title'] = 'Now Live: ';
         $data['meeting'] = $meeting;
         $data['meet_menu'] = true;
-        return view('watch_meeting', $data);
+        return view('watch-live', $data);
     }
 
     public function edit($id)

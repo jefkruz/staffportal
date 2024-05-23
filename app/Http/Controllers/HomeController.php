@@ -55,7 +55,7 @@ class HomeController extends Controller
         $data['events'] = Event::count();
         $data['meetings'] = Meeting::count();
 //        $data['assessments'] = Assessment::count();
-//        $data['programmes'] = Meeting::count();
+        $data['programmes'] = Meeting::count();
 //        $data['interactions'] = LiveInteractions::count();
         $data['dash_menu'] = true;
         return view('backend.dashboard', $data);

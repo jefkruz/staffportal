@@ -54,6 +54,9 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::get('videos', [VideoController::class, 'showVideos'])->name('videos');
     Route::post('videos/{id}/{slug}', [VideoController::class, 'addComment']);
     Route::get('videos/{id}/{slug}', [VideoController::class, 'viewVideo'])->name('viewVideo');
+    Route::get('programmes', [MeetingsController::class, 'showMeetings'])->name('meetings');
+
+    Route::get('live/watch/{code}', [MeetingsController::class, 'attendMeeting'])->name('attendMeeting');
 
 
 });

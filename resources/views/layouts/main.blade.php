@@ -147,15 +147,25 @@ $isDeptHead = session('user')->isDepartmentHead();
                             </div>
                         </a>
                     </li>
-                    <li>
 
+                    <li>
+                        <a href="{{route('meetings')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="film-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Live Meetings</div>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{route('videos')}}" class="item" >
                             <div class="icon-box bg-primary">
                                 <ion-icon name="play-circle-outline"></ion-icon>
                             </div>
                             <div class="in">
                                 <div>Videos</div>
-                                {{--                            <span class="badge badge-danger">5</span>--}}
                             </div>
 
                         </a>
@@ -238,10 +248,10 @@ $isDeptHead = session('user')->isDepartmentHead();
                     <strong>Info</strong>
                 </div>
             </a>
-            <a href="#" class="item" {{$meet_menu}}>
+            <a href="{{route('meetings')}}" class="item" {{$meet_menu}}>
                 <div class="col">
                     <ion-icon name="film-outline"></ion-icon>
-                    <strong>Meetings</strong>
+                    <strong>live</strong>
                 </div>
             </a>
             <a href="{{route('profile')}}" class="item {{$profile_menu}}" >
@@ -287,7 +297,7 @@ $isDeptHead = session('user')->isDepartmentHead();
     <!-- Bootstrap -->
 {{--<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>--}}
     <!-- JQUERY JS -->
-{{--    <script src="{{url('assets/js/jquery.min.js')}}"></script>--}}
+    <script src="{{url('assets/js/jquery.min.js')}}"></script>
 
     <script src="{{url('assets/js/popper.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap.js')}}"></script>
