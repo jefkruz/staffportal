@@ -103,6 +103,7 @@ class MeetingsController extends Controller
         $data['page_title'] = 'Now Live: ';
         $data['meeting'] = $meeting;
         $data['meet_menu'] = true;
+        $data['back'] = true;
         return view('watch-live', $data);
     }
 
