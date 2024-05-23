@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Meeting;
 use App\Models\MeetingAttendance;
+use App\Models\Stream;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -12,12 +13,13 @@ class MeetingsController extends Controller
     public function index()
     {
         $programmes = Meeting::latest()->get();
-        foreach($programmes as $programme){
-            $programme->startSeconds = strtotime($programme->start_date);
-            $programme->endSeconds = strtotime($programme->end_date);
-        }
+//        foreach($programmes as $programme){
+//            $programme->startSeconds = strtotime($programme->start_date);
+//            $programme->endSeconds = strtotime($programme->end_date);
+//        }
         $data['page_title'] = 'Live Programmes';
         $data['programmes'] = $programmes;
+        $data['streams'] = Stream::all();
         $data['meet_menu'] = true;
         return view('backend.meetings.index', $data);
     }
@@ -47,11 +49,11 @@ class MeetingsController extends Controller
         $ev->start_date = date("Y-m-d H:i:s", ($request->start_date / 1000));
         $ev->end_date = date("Y-m-d H:i:s", ($request->end_date / 1000));
         $ev->accessibility = $request->accessibility;
-        $ev->unique_code = 'OCOS-' . time();
+        $ev->unique_code = 'LWSP-' . time();
         $ev->save();
 
-        $n = new WebNotificationsController();
-        $n->createNotification($ev->title, 'programme', $ev->id);
+//        $n = new WebNotificationsController();
+//        $n->createNotification($ev->title, 'programme', $ev->id);
 
         return back()->with('message', 'Programme created');
 
@@ -64,7 +66,7 @@ class MeetingsController extends Controller
         foreach($programmes as $programme){
             $programme->startSeconds = strtotime($programme->start_date);
         }
-        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
+//        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $data['page_title'] = 'Live Programmes';
         $data['meet_menu'] = true;
         $data['meetings'] = $programmes;
@@ -92,13 +94,13 @@ class MeetingsController extends Controller
 
     public function attendMeeting($code)
     {
-        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
+//        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $meeting = Meeting::where('unique_code', $code)->firstOrFail();
         if(!$meeting->isLive()){
             return back();
         }
 
-        $data['page_title'] = 'Now Live: ' . $meeting->title;
+        $data['page_title'] = 'Now Live: ';
         $data['meeting'] = $meeting;
         $data['meet_menu'] = true;
         return view('watch_meeting', $data);

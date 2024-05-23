@@ -67,7 +67,9 @@
 
                         <div class="form-links mt-2 float-end ">
 
-                            <div><a href="#" class="text-muted">Forgot Password?</a></div>
+                            <div>
+{{--                                <a href="#" class="text-muted">Forgot Password?</a>--}}
+                            </div>
                         </div>
 
                         <br>

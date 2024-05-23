@@ -50,7 +50,7 @@ return [
 
         'server_path' => [
             'driver' => 'local',
-            'root' => public_path() . '/',
+            'root' => public_path() . '/../../public_html/',
         ],
 
         's3' => [
