@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('start_date');
             $table->string('end_date');
             $table->string('unique_code');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

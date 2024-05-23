@@ -25,6 +25,7 @@ class HomeController extends Controller
         $data['birthdays'] = User::where('dob','like', '%'.$date.'%')->where('enabled', '1')->get();
         $data['dash_menu'] = true;
        $data['video'] = Video::where('status','active')->first();
+       $data['meeting'] = Meeting::where('status','active')->first();
         $data['page_title'] = 'Home';
         $data['meetings'] = Event::select('meetingTitle','meetingID','meetingDesc')->orderBy('meetingDate', 'DESC')->take(10)->get();
         $data['special_meetings'] = Event::where('meeting_category','special')->select('meetingTitle','meetingID','meetingDesc')->orderBy('meetingDate', 'DESC')->take(10)->get();
