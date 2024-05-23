@@ -26,12 +26,12 @@
                      </div>
 
                     <div class="col-lg-4 p-2">
-                         <div class="card">
-                                 <div class="card-header">
-                           <h3 class="mb-0">Comments</h3>
-                       </div>
+{{--                         <div class="card">--}}
+{{--                                 <div class="card-header">--}}
+{{--                                  <h3 class="mb-0">Comments</h3>--}}
+{{--                                   </div>--}}
 
-                                  <div class="card-body ">
+{{--                                  <div class="card-body ">--}}
 {{--                                      <div class="overflow-auto" style="max-height: 300px;">--}}
 
 
@@ -62,9 +62,9 @@
 {{--                                           <!-- * comment block -->--}}
 {{--                                          </div>--}}
 {{--                                          @endforeach--}}
-                                       </div>
+{{--                                       </div>--}}
 
-                                     </div>
+{{--                                     </div>--}}
 
                                   <div class="divider mt-2 mb-3"></div>
 
