@@ -4,6 +4,7 @@ $profile_menu = (isset($profile_menu) && $profile_menu == true) ? 'active' : '';
 $meet_menu = (isset($meet_menu) && $meet_menu == true) ? 'active' : '';
 $live_menu = (isset($live_menu) && $live_menu == true) ? 'active' : '';
 $videos_menu = (isset($videos_menu) && $videos_menu == true) ? 'active' : '';
+$back = (isset($back) && $back == true) ? 'true' : '';
 $isDirector = session('user')->isDirector();
 $isDeptHead = session('user')->isDepartmentHead();
 ?>
@@ -44,11 +45,20 @@ $isDeptHead = session('user')->isDepartmentHead();
 
     <!-- App Header -->
     <div class="appHeader bg-primary scrolled">
+        @if($back==true)
+        <div class="left">
+            <a href="#" class="headerButton goBack">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </a>
+        </div>
+        @else
+
         <div class="left">
             <a href="#" class="headerButton" data-bs-toggle="offcanvas" data-bs-target="#sidebarPanel">
                 <ion-icon name="menu-outline"></ion-icon>
             </a>
         </div>
+        @endif
         <div class="pageTitle">
             {{ucwords($page_title)}}
         </div>
@@ -79,190 +89,181 @@ $isDeptHead = session('user')->isDepartmentHead();
 
 
     @yield('content')
+    @if(Session::get('user')->cateID ==8)
 
-    <!-- App Bottom Menu -->
-    <div class="appBottomMenu d-lg-none  infinite-menu" >
-        <a href="{{route('home')}}" class="item {{$dash_menu}}">
-            <div class="col">
-                <ion-icon name="home-outline"></ion-icon>
-                <strong>Home</strong>
-            </div>
-        </a>
-        <a href="{{route('posts')}}" class="item">
-            <div class="col">
-                <ion-icon name="megaphone-outline"></ion-icon>
-                <strong>Info</strong>
-            </div>
-        </a>
-        <a href="#" class="item" {{$meet_menu}}>
-            <div class="col">
-                <ion-icon name="film-outline"></ion-icon>
-                <strong>Meetings</strong>
-            </div>
-        </a>
-        <a href="{{route('profile')}}" class="item {{$profile_menu}}" >
-            <div class="col">
-                <ion-icon name="person-outline"></ion-icon>
-                <strong>Profile</strong>
-            </div>
-        </a>
-{{--        <a href="#" class="item" {{$meet_menu}}>--}}
-{{--            <div class="col">--}}
-{{--                <ion-icon name="tv-outline"></ion-icon>--}}
-{{--                <strong>BE TV</strong>--}}
-{{--            </div>--}}
-{{--        </a>--}}
-        <a href="{{route('videos')}}" class="item" {{$videos_menu}}>
-            <div class="col">
-                <ion-icon name="play-circle-outline"></ion-icon>
-                <strong>videos</strong>
-            </div>
-        </a>
-        <a href="{{route('stdl')}}" class="item">
-            <div class="col">
-                <ion-icon name="newspaper-outline"></ion-icon>
-                <strong>STDL</strong>
-            </div>
-        </a>
-
-        <a href="#sidebarPanel" class="item" data-bs-toggle="offcanvas">
-            <div class="col">
-                <ion-icon name="menu-outline"></ion-icon>
-                <strong>Menu</strong>
-            </div>
-        </a>
-    </div>
-    <!-- * App Bottom Menu -->
-
-    <!-- App Sidebar -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarPanel">
-        <div class="offcanvas-body">
-            <!-- profile box -->
-            <div class="profileBox">
-                <div class="image-wrapper">
-                    <img src="{{url(Session::get('user')->picturePath)}}" alt="image" class="imaged rounded">
-                </div>
-                <div class="in">
-                    <strong>{{ucwords(Session::get('user')->fullname())}}</strong>
-                    <div class="text-muted">
-                        {{--                        <ion-icon name="location"></ion-icon>--}}
-                        {{ucwords(Session::get('user')->department->deptName)}}
+        <!-- App Sidebar -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarPanel">
+            <div class="offcanvas-body">
+                <!-- profile box -->
+                <div class="profileBox">
+                    <div class="image-wrapper">
+                        <img src="{{url(Session::get('user')->picturePath)}}" alt="image" class="imaged rounded">
                     </div>
+                    <div class="in">
+                        <strong>{{ucwords(Session::get('user')->fullname())}}</strong>
+                        <div class="text-muted">
+                            {{--                        <ion-icon name="location"></ion-icon>--}}
+                            {{ucwords(Session::get('user')->department->deptName)}}
+                        </div>
+                    </div>
+                    <a href="#" class="close-sidebar-button" data-bs-dismiss="offcanvas">
+                        <ion-icon name="close"></ion-icon>
+                    </a>
                 </div>
-                <a href="#" class="close-sidebar-button" data-bs-dismiss="offcanvas">
-                    <ion-icon name="close"></ion-icon>
-                </a>
-            </div>
-            <!-- * profile box -->
+                <!-- * profile box -->
 
-            <ul class="listview flush transparent no-line image-listview mt-2 mb-2">
-                <br>
-                <li>
-                    <a href="{{route('home')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            Home
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('profile')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="person-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            Profile
-                        </div>
-                    </a>
-                </li>
+                <ul class="listview flush transparent no-line image-listview mt-2 mb-2">
+                    <br>
+                    <li>
+                        <a href="{{route('home')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Home
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('profile')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Profile
+                            </div>
+                        </a>
+                    </li>
 
 
-                <li>
-                    <a href="{{route('posts')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="megaphone-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>Information Center</div>
-                            {{--                            <span class="badge badge-danger">5</span>--}}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('stdl')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>STDL</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{route('videos')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="play-circle-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>Videos</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <div class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="moon-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>Dark Mode</div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodesidebar">
-                                <label class="form-check-label" for="darkmodesidebar"></label>
+                    <li>
+                        <a href="{{route('posts')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="megaphone-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Information Center</div>
+                                {{--                            <span class="badge badge-danger">5</span>--}}
+                            </div>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <div class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="moon-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Dark Mode</div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodesidebar">
+                                    <label class="form-check-label" for="darkmodesidebar"></label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="{{route('logout')}}" class="item">
-                        <div class="icon-box bg-primary">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </div>
-                        <div class="in">
-                            <div>Log out</div>
-                            {{--                            <span class="badge badge-danger">5</span>--}}
-                        </div>
-                    </a>
-                </li>
-            </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('logout')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Log out</div>
+                                {{--                            <span class="badge badge-danger">5</span>--}}
+                            </div>
+                        </a>
+                    </li>
+                </ul>
 
 
 
+            </div>
+            <!-- sidebar buttons -->
+            <div class="sidebar-buttons">
+                {{--            <a href="#" class="button">--}}
+                {{--                <ion-icon name="person-outline"></ion-icon>--}}
+                {{--            </a>--}}
+                {{--            <a href="#" class="button">--}}
+                {{--                <ion-icon name="archive-outline"></ion-icon>--}}
+                {{--            </a>--}}
+                {{--            <a href="#" class="button">--}}
+                {{--                <ion-icon name="settings-outline"></ion-icon>--}}
+                {{--            </a>--}}
+                {{--            <a href="{{route('logout')}}" class="button">--}}
+                {{--                <ion-icon name="log-out-outline"></ion-icon>--}}
+                {{--            </a>--}}
+            </div>
+            <!-- * sidebar buttons -->
         </div>
-        <!-- sidebar buttons -->
-        <div class="sidebar-buttons">
-            {{--            <a href="#" class="button">--}}
-            {{--                <ion-icon name="person-outline"></ion-icon>--}}
-            {{--            </a>--}}
-            {{--            <a href="#" class="button">--}}
-            {{--                <ion-icon name="archive-outline"></ion-icon>--}}
-            {{--            </a>--}}
-            {{--            <a href="#" class="button">--}}
-            {{--                <ion-icon name="settings-outline"></ion-icon>--}}
-            {{--            </a>--}}
-            {{--            <a href="{{route('logout')}}" class="button">--}}
-            {{--                <ion-icon name="log-out-outline"></ion-icon>--}}
-            {{--            </a>--}}
+        <!-- * App Sidebar -->
+
+    @else
+
+        <!-- App Bottom Menu -->
+        <div class="appBottomMenu d-lg-none  infinite-menu" >
+            <a href="{{route('home')}}" class="item {{$dash_menu}}">
+                <div class="col">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <strong>Home</strong>
+                </div>
+            </a>
+            <a href="{{route('posts')}}" class="item">
+                <div class="col">
+                    <ion-icon name="megaphone-outline"></ion-icon>
+                    <strong>Info</strong>
+                </div>
+            </a>
+            <a href="#" class="item" {{$meet_menu}}>
+                <div class="col">
+                    <ion-icon name="film-outline"></ion-icon>
+                    <strong>Meetings</strong>
+                </div>
+            </a>
+            <a href="{{route('profile')}}" class="item {{$profile_menu}}" >
+                <div class="col">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <strong>Profile</strong>
+                </div>
+            </a>
+            {{--        <a href="#" class="item" {{$meet_menu}}>--}}
+            {{--            <div class="col">--}}
+            {{--                <ion-icon name="tv-outline"></ion-icon>--}}
+            {{--                <strong>BE TV</strong>--}}
+            {{--            </div>--}}
+            {{--        </a>--}}
+
+            <a href="{{route('videos')}}" class="item" {{$videos_menu}}>
+                <div class="col">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    <strong>videos</strong>
+                </div>
+            </a>
+            <a href="{{route('stdl')}}" class="item">
+                <div class="col">
+                    <ion-icon name="newspaper-outline"></ion-icon>
+                    <strong>STDL</strong>
+                </div>
+            </a>
+
+            <a href="#sidebarPanel" class="item" data-bs-toggle="offcanvas">
+                <div class="col">
+                    <ion-icon name="menu-outline"></ion-icon>
+                    <strong>Menu</strong>
+                </div>
+            </a>
         </div>
-        <!-- * sidebar buttons -->
-    </div>
-    <!-- * App Sidebar -->
+        <!-- * App Bottom Menu -->
+
+    @endif
+
 
 
 
     <!-- Bootstrap -->
 {{--<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>--}}
+    <!-- JQUERY JS -->
+    <script src="{{url('assets/js/jquery.min.js')}}"></script>
 
     <script src="{{url('assets/js/popper.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap.js')}}"></script>

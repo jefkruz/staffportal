@@ -88,7 +88,7 @@ class VideoController extends Controller
         $video = Video::whereIdAndSlug($id, $slug)->firstOrFail();
 
         $data['page_title'] = 'Watch Video';
-
+        $data['back'] = true;
         $data['video'] = $video;
         return view('watch-video', $data);
     }
@@ -118,7 +118,6 @@ class VideoController extends Controller
         $comment->video_id = $video->id;
         $comment->portal_id = $user->portalID;
         $comment->name = $user->fullname();
-        $comment->email = $user->email;
         $comment->picture = $user->picturePath;
         $comment->comment = $request->comment;
         $comment->save();
@@ -126,30 +125,6 @@ class VideoController extends Controller
         return back();
     }
 
-    public function addDocumentaryComment( Request $request)
-    {
-
-        $request->validate([
-            'comment' => ['required', 'regex:/^[^<>]*$/'],
-            'id'=>'required',
-            'slug'=>'required',
-        ], [
-            'comment.regex' => 'The comment must not contain HTML or script tags.'
-        ]);
-
-        $video = Video::whereIdAndSlug($request->id, $request->slug)->firstOrFail();
-
-
-        $comment = new VideoComment();
-        $comment->video_id = $video->id;
-        $comment->name = $request->name;
-        $comment->email = $request->email;
-        $comment->picture = url('avatar/default.png');
-        $comment->comment = $request->comment;
-        $comment->save();
-
-        return back();
-    }
 
     public function destroy($id)
     {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
-use App\Models\ResourceComment;
+use App\Models\PostComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -34,22 +34,23 @@ class PostsController extends Controller
         $data['post'] = $resource;
         $data['page_title'] = 'View Post';
         $data['posts_menu'] = true;
+        $data['back'] = true;
         return view('view-post', $data);
     }
 
-    public function addComment($id, $slug, Request $request)
+    public function addComment($id,  Request $request)
     {
         $request->validate([
             'comment' => 'required'
         ]);
-        $post = Announcement::whereIdAndSlug($id, $slug)->firstOrFail();
+        $post = Announcement::whereId($id)->firstOrFail();
         $user = Session::get('user');
 
-        $comment = new ResourceComment();
-        $comment->resource_id = $post->id;
-        $comment->user_id = $user->id;
-        $comment->name = $user->title . ' ' . $user->firstname . ' ' . $user->lastname;
-        $comment->picture = $user->profile_pic;
+        $comment = new PostComment();
+        $comment->post_id = $post->id;
+        $comment->portal_id = $user->portalID;
+        $comment->name = $user->fullname();
+        $comment->picture = $user->picturePath;
         $comment->comment = $request->comment;
         $comment->save();
 

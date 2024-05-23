@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
-use App\Models\ResourceComment;
+use App\Models\PostComment;
 use App\Models\ResourcePost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;

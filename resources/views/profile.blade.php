@@ -80,7 +80,7 @@
                                                             <div class="form-group boxed">
                                                                 <div class="input-wrapper">
                                                                     <label class="form-label" for="city5">Title</label>
-                                                                    <select class="form-control form-select country"  required name="title" >
+                                                                    <select class="form-control form-select "  required name="title" >
                                                                         <option value="" {{ !$user->title ? 'selected' : '' }}>--Select--</option>
                                                                         <option value="Brother" {{ $user->title == 'Brother' ? 'selected' : '' }}>Brother</option>
                                                                         <option value="Sister" {{ $user->title == 'Sister' ? 'selected' : '' }}>Sister</option>

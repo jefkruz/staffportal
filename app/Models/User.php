@@ -34,6 +34,10 @@ class User extends Authenticatable
         return DepartmentHead::where('user_id', $this->id)->exists();
     }
 
+
+
+
+
     public function getInitials()
     {
         $firstName = strtoupper(substr($this->firstName, 0, 1));
@@ -53,7 +57,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Department::class, 'deptID','deptID');
     }
-
 
 
     public function family()

@@ -45,6 +45,7 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::get('profile', [StaffController::class, 'profile'])->name('profile');
     Route::get('information-center', [PostsController::class, 'showPosts'])->name('posts');
     Route::get('information-center/view/{id}', [PostsController::class, 'viewPost'])->name('posts.show');
+    Route::post('information-center/view/{id}', [PostsController::class, 'addComment']);
     Route::patch('profile/basic', [StaffController::class, 'updateBasicProfile'])->name('updateBasicProfile');
     Route::patch('profile/family', [StaffController::class, 'updateFamilyProfile'])->name('updateFamilyProfile');
     Route::patch('profile/ministry', [StaffController::class, 'updateMinistryProfile'])->name('updateMinistryProfile');

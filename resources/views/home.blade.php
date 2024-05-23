@@ -41,6 +41,9 @@
                 <div class="col-lg-9 ">
 
                     <div class="section full ">
+                        @if(Session::get('user')->cateID ==8)
+
+                        @else
                         <div class="container p-2">
                             <div class="card ">
                                 <div class="card-header">
@@ -60,6 +63,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <div class="container p-2">
                             <div class="card ">
                                 <div class="card-header">
@@ -92,51 +96,7 @@
 
                     </div>
 
-{{--                    <div class="section full ">--}}
-{{--                     <div class="container">--}}
-{{--                         <div class="card">--}}
-{{--                             <div class="card-header">--}}
-{{--                                 <h2>--}}
-{{--                                     My Meetings--}}
-{{--                                 </h2>--}}
-{{--                             </div>--}}
-{{--                             <div class="card-body">--}}
 
-{{--                                 <div class="carousel-multiple splide">--}}
-{{--                                     <div class="splide__track">--}}
-{{--                                         <ul class="splide__list">--}}
-{{--                                             @foreach($meetings as  $meeting)--}}
-{{--                                                 <li class="splide__slide">--}}
-{{--                                                     <div class="card">--}}
-{{--                                                         <div class="card-header">--}}
-{{--                                                             <h3 class="mb-0"><b>{{ucwords($meeting->meetingTitle)}}</b></h3>--}}
-
-{{--                                                         </div>--}}
-{{--                                                         <div class="card-body pt-2">--}}
-{{--                                                             <p class="mb-0">{{$meeting->meetingDesc}}</p>--}}
-{{--                                                             @if($meeting->accepted() )--}}
-{{--                                                                 <a href="#" class="btn  btn-sm btn-success mt-2 float-end">ACCEPTED</a>--}}
-{{--                                                             @else--}}
-{{--                                                                 <a href="#" class="btn  btn-sm btn-danger mt-2 float-end">ACCEPT MEETING</a>--}}
-{{--                                                             @endif--}}
-{{--                                                         </div>--}}
-
-{{--                                                     </div>--}}
-{{--                                                 </li>--}}
-{{--                                             @endforeach--}}
-
-{{--                                         </ul>--}}
-{{--                                     </div>--}}
-{{--                                 </div>--}}
-{{--                             </div>--}}
-
-{{--                         </div>--}}
-
-{{--                     </div>--}}
-
-{{--                        <!-- * carousel multiple -->--}}
-
-{{--                    </div>--}}
                 </div>
 
 
@@ -151,7 +111,26 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="overflow-auto" style="max-height: 550px;">
+                                        @if(Session::get('user')->cateID ==8)
+                                            @foreach($special_meetings as $meeting)
+                                                <ul class="listview image-listview media flush">
+                                                    <li>
+                                                        <div class="card" >
 
+                                                            <div class="card-body ">
+                                                                <h3 ><b>{{ ucwords($meeting->meetingTitle) }}</b></h3>
+                                                                <p class="mb-0">{{ $meeting->meetingDesc }}</p>
+                                                                @if($meeting->accepted())
+                                                                    <a href="#" class="btn btn-sm btn-success mt-2 float-end">ACCEPTED</a>
+                                                                @else
+                                                                    <a href="#" class="btn btn-sm btn-danger mt-2 float-end">ACCEPT MEETING</a>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            @endforeach
+                                        @else
                                             @foreach($meetings as $meeting)
                                             <ul class="listview image-listview media flush">
                                                 <li>
@@ -170,14 +149,17 @@
                                                 </li>
                                             </ul>
                                             @endforeach
-
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="section full mt-3 mb-3 ">
+                    @if(Session::get('user')->cateID ==8)
+
+                        @else
+                      <div class="section full mt-3 mb-3 ">
                       <div class="container">
 
                           <div class="card">
@@ -215,6 +197,7 @@
 
                       </div>
                     </div>
+                        @endif
                 </div>
             </div>
 

@@ -26,6 +26,7 @@ class HomeController extends Controller
        $data['video'] = Video::where('status','active')->first();
         $data['page_title'] = 'Home';
         $data['meetings'] = Event::select('meetingTitle','meetingID','meetingDesc')->orderBy('meetingDate', 'DESC')->take(10)->get();
+        $data['special_meetings'] = Event::where('meeting_category','special')->select('meetingTitle','meetingID','meetingDesc')->orderBy('meetingDate', 'DESC')->take(10)->get();
         $data['slides'] = Slide::all();
         $data['announcements'] = Announcement::latest('created_at')->take(3)->get();;
         return view('home', $data);
