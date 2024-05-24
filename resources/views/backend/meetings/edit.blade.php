@@ -38,12 +38,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="">Meeting Count</label>
-                                    <input type="text" class="form-control" name="meeting_count" value="{{$meeting->count}}" placeholder="Meeting Count">
-                                </div>
-                            </div>
+
 
                         </div>
 

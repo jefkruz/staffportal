@@ -127,7 +127,6 @@ class MeetingsController extends Controller
 
         $post->title = $request->title;
         $post->stream_link = $request->stream_link;
-        $post->meeting_count = $request->meeting_count;
         $post->accessibility = $request->accessibility;
         $post->save();
 
