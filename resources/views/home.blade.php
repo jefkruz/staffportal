@@ -44,48 +44,48 @@
 {{--                        @if(Session::get('user')->cateID ==8)--}}
 
 {{--                        @else--}}
-                            <div class="container p-2">
-                                <div class="card ">
-                                    <div class="card-header">
-                                        <h2>
-                                            Blue Elite TV
-                                        </h2>
-                                    </div>
-                                    <div class="card-body ">
+{{--                            <div class="container p-2">--}}
+{{--                                <div class="card ">--}}
+{{--                                    <div class="card-header">--}}
+{{--                                        <h2>--}}
+{{--                                            Blue Elite TV--}}
+{{--                                        </h2>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="card-body ">--}}
 
-                                        <a  href="{{route('attendMeeting', $meeting->unique_code)}}">
-                                            <img src="{{url('video/video.jpeg')}}" class="card-img-top"  alt="">
-                                        </a>
+{{--                                        <a  href="{{route('attendMeeting', $meeting->unique_code)}}">--}}
+{{--                                            <img src="{{url('video/video.jpeg')}}" class="card-img-top"  alt="">--}}
+{{--                                        </a>--}}
 
-                                    </div>
-                                    <div class="card-footer">
-                                        <h4 class="card-title">{{$meeting->title}}</h4>
+{{--                                    </div>--}}
+{{--                                    <div class="card-footer">--}}
+{{--                                        <h4 class="card-title">{{$meeting->title}}</h4>--}}
 
-                                        <a   href="{{route('attendMeeting', $meeting->unique_code)}}" class="btn btn-primary btn-sm float-end "><i class="fa fa-play"></i>  Watch </a>
+{{--                                        <a   href="{{route('attendMeeting', $meeting->unique_code)}}" class="btn btn-primary btn-sm float-end "><i class="fa fa-play"></i>  Watch </a>--}}
 
-                                    </div>
-                                </div>
-                            </div>
-{{--                        <div class="container p-2">--}}
-{{--                            <div class="card ">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h2>--}}
-{{--                                        Blue Elite TV--}}
-{{--                                    </h2>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body ">--}}
-
-{{--                                    <video id="video" class="video-js">--}}
-{{--                                        <source src="{{url($video->link)}}" type="video/mp4">--}}
-{{--                                    </video>--}}
-
-{{--                                </div>--}}
-{{--                                <div class="card-footer">--}}
-{{--                                    <h3>{{ucwords($video->name)}}</h3>--}}
+{{--                                    </div>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        @endif--}}
+                        <div class="container p-2">
+                            <div class="card ">
+                                <div class="card-header">
+                                    <h2>
+                                        Blue Elite TV
+                                    </h2>
+                                </div>
+                                <div class="card-body ">
+
+                                    <video id="video" class="video-js">
+                                        <source src="{{url($video->link)}}" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="card-footer">
+                                    <h3>{{ucwords($video->name)}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                         <div class="container p-2">
                             <div class="card ">
                                 <div class="card-header">
@@ -132,7 +132,7 @@
                                     </h2>
                                 </div>
                                 <div class="card-body">
-                                    <div class="overflow-auto" style="max-height: 550px;">
+                                    <div class="overflow-auto" style="max-height: 300px;">
                                         @if(Session::get('user')->cateID ==8)
                                             @foreach($special_meetings as $meeting)
                                                 <ul class="listview image-listview media flush">
@@ -191,7 +191,7 @@
                                   </h2>
                               </div>
                               <div class="card-body">
-                                  <div class=" overflow-auto"  style="max-height: 550px">
+                                  <div class=" overflow-auto"  style="max-height: 300px">
 
                                       <ul class="listview image-listview media flush ">
                                           @foreach($birthdays as $birthday)
