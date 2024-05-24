@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
+
                         <div class="container p-2">
                             <div class="card ">
                                 <div class="card-header">
