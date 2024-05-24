@@ -132,7 +132,7 @@
                                     </h2>
                                 </div>
                                 <div class="card-body">
-                                    <div class="overflow-auto" style="max-height: 300px;">
+                                    <div class="overflow-auto" style="max-height: 200px;">
                                         @if(Session::get('user')->cateID ==8)
                                             @foreach($special_meetings as $meeting)
                                                 <ul class="listview image-listview media flush">
