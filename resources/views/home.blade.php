@@ -145,7 +145,8 @@
                                                                 @if($meeting->accepted())
                                                                     <a href="#" class="btn btn-sm btn-success mt-2 float-end">ACCEPTED</a>
                                                                 @else
-                                                                    <a href="#" class="btn btn-sm btn-danger mt-2 float-end">ACCEPT MEETING</a>
+                                                                    <button data-id="{{$meeting->meetingID}}"  data-bs-toggle="modal" data-bs-target="#acceptMeetingBtn"  class="btn btn-sm btn-danger mt-2 float-end acceptMeetingBtn"> Accept Meeting</button>
+
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -164,7 +165,8 @@
                                                             @if($meeting->accepted())
                                                                 <a href="#" class="btn btn-sm btn-success mt-2 float-end">ACCEPTED</a>
                                                             @else
-                                                                <a href="#" class="btn btn-sm btn-danger mt-2 float-end">ACCEPT MEETING</a>
+                                                                <button data-id="{{$meeting->meetingID}}" data-bs-toggle="modal" data-bs-target="#acceptMeetingBtn"  class="btn btn-sm btn-danger mt-2 float-end acceptMeetingBtn"> Accept Meeting</button>
+
                                                             @endif
                                                         </div>
                                                     </div>
@@ -245,6 +247,35 @@
     </div>
     <!-- * App Capsule -->
 
+    <div class="modal fade" id="acceptEventModal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Accept Event</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="acceptForm" action="{{route('acceptEvent')}}" method="post">
+                        @csrf
+                        <input type="hidden" id="event_id" name="event_id" required>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Kingschat Phone</label>
+                                    <input type="text" class="form-control" name="phone" value="{{session('user')->phoneNum}}" placeholder="+234xxx..." required>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <span></span>
+                    <button type="submit" form="acceptForm" class="btn btn-primary">Accept Meeting</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 
 
@@ -272,4 +303,24 @@
         });
 
         </script>
+
+    <script>
+        const acceptMeetingBtn = $('.acceptMeetingBtn');
+        const scanCodeBtn = $('.scanCodeBtn');
+        const eventID = $('#event_id');
+
+        acceptMeetingBtn.on('click', function(){
+            const evID = $(this).data('id');
+            eventID.val(evID);
+            const modal = new bootstrap.Modal(document.getElementById('acceptEventModal'));
+            modal.show();
+        });
+
+        // scanCodeBtn.on('click', function(){
+        //     const evID = $(this).data('id');
+        //     eventID.val(evID);
+        //     const modal = new bootstrap.Modal(document.getElementById('showQrModal'));
+        //     modal.show();
+        // });
+    </script>
 @endsection

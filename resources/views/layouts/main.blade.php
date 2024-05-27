@@ -63,6 +63,9 @@ $isDeptHead = session('user')->isDepartmentHead();
             {{ucwords($page_title)}}
         </div>
         <div class="right">
+{{--            <a href="#" class="headerButton toggle-searchbox">--}}
+{{--                <ion-icon name="notification-outline"></ion-icon>--}}
+{{--            </a>--}}
             <a href="#" class="headerButton toggle-searchbox">
                 <ion-icon name="search-outline"></ion-icon>
             </a>

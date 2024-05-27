@@ -100,6 +100,12 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Program Image</label>
+                                    <input type="file" name="file" class="form-control" accept="image/*" required>
+                                </div>
+                            </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">

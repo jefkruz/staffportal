@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobFamilyController;
 use App\Http\Controllers\KcController;
@@ -42,6 +43,8 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('stdl', [HomeController::class, 'stdl'])->name('stdl');
+    Route::post('events/accept', [EventsController::class, 'acceptEvent'])->name('acceptEvent');
+
     Route::get('profile', [StaffController::class, 'profile'])->name('profile');
     Route::get('information-center', [PostsController::class, 'showPosts'])->name('posts');
     Route::get('information-center/view/{id}', [PostsController::class, 'viewPost'])->name('posts.show');
