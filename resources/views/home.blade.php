@@ -132,7 +132,7 @@
                                     </h2>
                                 </div>
                                 <div class="card-body">
-                                    <div class="overflow-auto" style="max-height: 200px;">
+                                    <div class="overflow-auto" style="max-height: 200px; overflow-y: scroll; scrollbar-width: thin;">
                                         @if(Session::get('user')->cateID ==8)
                                             @foreach($special_meetings as $meeting)
                                                 <ul class="listview image-listview media flush">
@@ -193,7 +193,7 @@
                                       </h2>
                                   </div>
                                   <div class="card-body">
-                                      <div class=" overflow-auto"  style="max-height: 300px">
+                                      <div class=" overflow-auto"  style="max-height: 300px; overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
                                               @foreach($birthdays as $birthday)
