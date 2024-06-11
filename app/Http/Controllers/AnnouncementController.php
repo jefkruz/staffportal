@@ -88,8 +88,8 @@ class AnnouncementController extends Controller
         $p = new Announcement();
         $p->title = $request->title;
         $p->slug = Str::slug($request->title);
-        $p->content = $request->post_body;
-        $p->image = $path;
+        $p->body = $request->post_body;
+        $p->banner = $path;
         $p->save();
 
 //        $n = new WebNotificationsController();
