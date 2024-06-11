@@ -39,6 +39,22 @@ class HomeController extends Controller
         return redirect('http://162.210.199.3/Account/?ReturnUrl=%2fstudyprogram');
     }
 
+    public function handbook()
+    {
+        $data['page_title'] = 'Staff Handbook';
+        return view('handbook', $data);
+    }
+
+    public function greetings($id)
+    {
+        return $id;
+    }
+    public function counselling()
+    {
+        $data['page_title'] = 'Staff Counselling';
+        return view('counselling', $data);
+    }
+
     public function adminDashboard()
     {
         $data['page_title'] = 'Dashboard';

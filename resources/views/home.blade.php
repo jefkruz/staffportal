@@ -184,43 +184,80 @@
 
                         @else
                       <div class="section full mt-3 mb-3 ">
-                      <div class="container">
+                          <div class="container">
 
-                          <div class="card">
-                              <div class="card-header">
-                                  <h2 class="">
-                                      Today's Celebrants
-                                  </h2>
-                              </div>
-                              <div class="card-body">
-                                  <div class=" overflow-auto"  style="max-height: 300px">
-
-                                      <ul class="listview image-listview media flush ">
-                                          @foreach($birthdays as $birthday)
-                                              <li>
-                                                  <a href="#" class="item">
-                                                      <div class="imageWrapper">
-                                                          <img src="{{url($birthday->picturePath)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">
-                                                      </div>
-                                                      <div class="in">
-                                                          <div class="flex-column">
-                                                              {{ucwords($birthday->fullname())}}
-                                                              <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
-{{--                                                              <button class="btn btn-sm btn-primary">SEND GREETINGS</button>--}}
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                              </li>
-                                          @endforeach
-
-                                      </ul>
+                              <div class="card">
+                                  <div class="card-header">
+                                      <h2 class="">
+                                          Today's Celebrants
+                                      </h2>
                                   </div>
+                                  <div class="card-body">
+                                      <div class=" overflow-auto"  style="max-height: 300px">
 
+                                          <ul class="listview image-listview media flush ">
+                                              @foreach($birthdays as $birthday)
+                                                  <li>
+                                                      <a href="#" class="item">
+                                                          <div class="imageWrapper">
+                                                              <img src="{{url($birthday->picturePath)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">
+                                                          </div>
+                                                          <div class="in">
+                                                              <div class="flex-column">
+                                                                  {{ucwords($birthday->fullname())}}
+                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
+                                                                  <button  href="{{route('greetings', $birthday->portalID)}}" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                  </li>
+                                              @endforeach
+
+                                          </ul>
+                                      </div>
+
+                                  </div>
                               </div>
-                          </div>
 
+                          </div>
+                          <br>
+                          <div class="container">
+
+                              <div class="card">
+                                  <div class="card-header">
+                                      <h2 class="">
+                                          Staff Events
+                                      </h2>
+                                  </div>
+                                  <div class="card-body">
+                                      <div class=" overflow-auto"  style="max-height: 300px">
+
+                                          <ul class="listview image-listview media flush ">
+{{--                                              @foreach($birthdays as $birthday)--}}
+{{--                                                  <li>--}}
+{{--                                                      <a href="#" class="item">--}}
+{{--                                                          <div class="imageWrapper">--}}
+{{--                                                              <img src="{{url($birthday->picturePath)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">--}}
+{{--                                                          </div>--}}
+{{--                                                          <div class="in">--}}
+{{--                                                              <div class="flex-column">--}}
+{{--                                                                  {{ucwords($birthday->fullname())}}--}}
+{{--                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>--}}
+{{--                                                                  <a  href="{{route('greetings', $brirthday->portalID)}}" class="btn btn-sm btn-primary">SEND GREETINGS</a>--}}
+{{--                                                              </div>--}}
+{{--                                                          </div>--}}
+{{--                                                      </a>--}}
+{{--                                                  </li>--}}
+{{--                                              @endforeach--}}
+
+                                          </ul>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                          </div>
                       </div>
-                    </div>
                         @endif
                 </div>
             </div>

@@ -185,6 +185,30 @@ $isDeptHead = session('user')->isDepartmentHead();
 
                         </a>
                     </li>
+                    <li>
+                        <a href="{{route('handbook')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="newspaper-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Staff Handbook</div>
+                                <span class="badge badge-danger">New</span>
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('counselling')}}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="newspaper-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Staff Counselling</div>
+                                <span class="badge badge-danger">New</span>
+                            </div>
+
+                        </a>
+                    </li>
 
                     <li>
                         <div class="item">

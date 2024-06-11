@@ -10,6 +10,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\SlidesController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StaffEventsController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,9 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::post('events/accept', [EventsController::class, 'acceptEvent'])->name('acceptEvent');
 
     Route::get('profile', [StaffController::class, 'profile'])->name('profile');
+    Route::get('staff_handbook', [HomeController::class, 'handbook'])->name('handbook');
+    Route::get('counselling', [HomeController::class, 'counselling'])->name('counselling');
+    Route::get('greetings/{id}', [HomeController::class, 'greetings'])->name('greetings');
     Route::get('information-center', [PostsController::class, 'showPosts'])->name('posts');
     Route::get('information-center/view/{id}', [PostsController::class, 'viewPost'])->name('posts.show');
     Route::post('information-center/view/{id}', [PostsController::class, 'addComment']);
@@ -124,6 +128,15 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::post('delete/{id}', [PostsController::class, 'destroy'])->name('posts.delete');
         Route::patch('update/{id}', [PostsController::class, 'update'])->name('posts.update');
     });
+    Route::group(['prefix' => 'staff-events'], function(){
+        Route::get('/', [StaffEventsController::class, 'index'])->name('staff-events.index');
+        Route::post('/', [StaffEventsController::class, 'store'])->name('staff-events.store');
+        Route::get('create', [StaffEventsController::class, 'create'])->name('staff-events.create');
+        Route::get('edit/{id}', [StaffEventsController::class, 'edit'])->name('staff-events.edit');
+        Route::post('delete/{id}', [StaffEventsController::class, 'destroy'])->name('staff-events.delete');
+        Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
+    });
+
     Route::group(['prefix' => 'regions'], function(){
         Route::get('/', [RegionController::class, 'index'])->name('regions.index');
         Route::post('/', [RegionController::class, 'store'])->name('regions.store');

@@ -89,4 +89,6 @@ class AuthController extends Controller
         session()->flush();
         return to_route('login');
     }
+
+
 }
