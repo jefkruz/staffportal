@@ -46,6 +46,20 @@
         </div>
         <div class="col-lg-3 col-6">
             <!-- small box -->
+            <div class="small-box bg-lightblue">
+                <div class="inner">
+                    <h3>{{$staffevents}}</h3>
+
+                    <p>Staff Events</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-calendar-days"></i>
+                </div>
+                <a href="{{route('staff-events.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
             <div class="small-box bg-gradient-purple">
                 <div class="inner">
                     <h3>{{$videos}}</h3>
