@@ -233,22 +233,22 @@
                                       <div class=" overflow-auto"  style="max-height: 300px">
 
                                           <ul class="listview image-listview media flush ">
-{{--                                              @foreach($birthdays as $birthday)--}}
-{{--                                                  <li>--}}
-{{--                                                      <a href="#" class="item">--}}
-{{--                                                          <div class="imageWrapper">--}}
-{{--                                                              <img src="{{url($birthday->picturePath)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">--}}
-{{--                                                          </div>--}}
-{{--                                                          <div class="in">--}}
-{{--                                                              <div class="flex-column">--}}
-{{--                                                                  {{ucwords($birthday->fullname())}}--}}
+                                              @foreach($events as $event)
+                                                  <li>
+                                                      <a href="#" class="item">
+                                                          <div class="imageWrapper">
+                                                              <img src="{{url($event->image)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">
+                                                          </div>
+                                                          <div class="in">
+                                                              <div class="flex-column">
+                                                                  {{ucwords($event->title)}}
 {{--                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>--}}
-{{--                                                                  <a  href="{{route('greetings', $brirthday->portalID)}}" class="btn btn-sm btn-primary">SEND GREETINGS</a>--}}
-{{--                                                              </div>--}}
-{{--                                                          </div>--}}
-{{--                                                      </a>--}}
-{{--                                                  </li>--}}
-{{--                                              @endforeach--}}
+                                                                  <a  href="" class="btn btn-sm btn-primary">SEND GREETINGS</a>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                  </li>
+                                              @endforeach
 
                                           </ul>
                                       </div>

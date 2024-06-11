@@ -63,9 +63,18 @@ $isDeptHead = session('user')->isDepartmentHead();
             {{ucwords($page_title)}}
         </div>
         <div class="right">
-{{--            <a href="#" class="headerButton toggle-searchbox">--}}
-{{--                <ion-icon name="notification-outline"></ion-icon>--}}
-{{--            </a>--}}
+            <a href="#" class="headerButton toggle-searchbox">
+                <ion-icon name="globe-outline" ></ion-icon> <span style="margin-left: 5px; font-weight:lighter;">English</span>
+            </a>
+{{--            <div class="d-flex country">--}}
+{{--                <a class="nav-link icon text-center" data-bs-target="#country-selector"--}}
+{{--                   data-bs-toggle="modal">--}}
+
+{{--                    <span--}}
+{{--                        class="fs-16 ms-2 d-none d-xl-block">--}}
+{{--                         <ion-icon name="globe-outline"></ion-icon>English</span>--}}
+{{--                </a>--}}
+{{--            </div>--}}
             <a href="#" class="headerButton toggle-searchbox">
                 <ion-icon name="search-outline"></ion-icon>
             </a>
