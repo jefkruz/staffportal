@@ -31,7 +31,7 @@ class AnnouncementController extends Controller
     public function viewAnnouncement($id, $slug)
     {
         $resource = Announcement::whereIdAndSlug($id, $slug)->firstOrFail();
-        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
+//        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
         $data['resource'] = $resource;
         $data['page_title'] = $resource->title;
         $data['announcements_menu'] = true;
@@ -59,7 +59,7 @@ class AnnouncementController extends Controller
 
     public function edit($id)
     {
-        $data['page_title'] = 'Edit Announcement';
+        $data['page_title'] = 'Edit Information';
         $data['announcement'] = true;
         $data['res'] = Announcement::findOrFail($id);
         return view('backend.announcements.edit', $data);
@@ -67,7 +67,7 @@ class AnnouncementController extends Controller
 
     public function create()
     {
-        $data['page_title'] = 'Create New Announcement ';
+        $data['page_title'] = 'Create New  Information ';
         $data['announcement_menu'] = true;
         return view('backend.announcements.create', $data);
     }
@@ -82,7 +82,7 @@ class AnnouncementController extends Controller
         $path = null;
         if($request->hasFile('file')){
             $file = $request->file('file');
-            $path = $file->store('announcement ', env('DEFAULT_DISK'));
+            $path = $file->store('notification_banners ', env('DEFAULT_DISK'));
         }
 
         $p = new Announcement();
@@ -92,10 +92,10 @@ class AnnouncementController extends Controller
         $p->image = $path;
         $p->save();
 
-        $n = new WebNotificationsController();
-        $n->createNotification($p->title, 'announcement', $p->id,$p->slug);
+//        $n = new WebNotificationsController();
+//        $n->createNotification($p->title, 'announcement', $p->id,$p->slug);
 
-        return to_route('announcements.index')->with('message', 'Announcement added');
+        return to_route('announcements.index')->with('message', ' Information added');
     }
 
     public function update($id, Request $request)
@@ -109,7 +109,7 @@ class AnnouncementController extends Controller
         $path = $p->image;
         if($request->hasFile('file')){
             $file = $request->file('file');
-            $path = $file->store('announcement ', env('DEFAULT_DISK'));
+            $path = $file->store('notification_banners ', env('DEFAULT_DISK'));
         }
 
 
@@ -118,7 +118,7 @@ class AnnouncementController extends Controller
         $p->image = $path;
         $p->save();
 
-        return to_route('announcements.index')->with('message', 'Announcement  updated');
+        return to_route('announcements.index')->with('message', ' Information updated');
     }
 
     public function delete($id)
@@ -128,7 +128,7 @@ class AnnouncementController extends Controller
 //            $comment->delete();
 //        }
         $p->delete();
-        return back()->with('message', 'Announcement deleted');
+        return back()->with('message', ' Information deleted');
 
     }
 }

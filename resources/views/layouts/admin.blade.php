@@ -158,12 +158,19 @@ $staff_events_menu = isset($staff_events_menu) ? 'active' : '';
                             </p>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a href="{{route('meetings.index')}}" class="nav-link {{$meet_menu}}">
                             <i class="nav-icon fa fa-tv"></i>
                             <p>
                                 Live Meetings
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('announcements.index')}}" class="nav-link {{$announcements_menu}}">
+                            <i class="nav-icon fa fa-bullhorn"></i>
+                            <p>
+                               Information Center
                             </p>
                         </a>
                     </li>

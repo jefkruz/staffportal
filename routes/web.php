@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
@@ -144,6 +145,15 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::get('edit/{id}', [RegionController::class, 'edit'])->name('regions.edit');
         Route::post('delete/{id}', [RegionController::class, 'destroy'])->name('regions.delete');
         Route::patch('update/{id}', [RegionController::class, 'update'])->name('regions.update');
+    });
+
+    Route::group(['prefix' => 'information-center'], function(){
+        Route::get('/', [AnnouncementController::class, 'index'])->name('announcements.index');
+        Route::post('/', [AnnouncementController::class, 'store'])->name('announcements.store');
+        Route::get('create', [AnnouncementController::class, 'create'])->name('announcements.create');
+        Route::get('edit/{id}', [AnnouncementController::class, 'edit'])->name('announcements.edit');
+        Route::patch('update/{id}', [AnnouncementController::class, 'update'])->name('announcements.update');
+        Route::delete('{id}', [AnnouncementController::class, 'delete'])->name('announcements.delete');
     });
 
     Route::group(['prefix' => 'slides'], function(){
