@@ -21,7 +21,7 @@
             <div class="small-box bg-gradient-fuchsia">
 
                 <div class="inner">
-                    <h3>{{$job_families}}</h3>
+                    <h3>{{$announcements}}</h3>
 
                     <p>Information Center</p>
                 </div>

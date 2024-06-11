@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         $data['staffs'] = User::count();
 //        $data['notifiers'] = FirebaseToken::count();
-//        $data['announcements'] = Announcement::count();
+        $data['announcements'] = Announcement::count();
         $data['slides'] = Slide::count();
         $data['regions'] = Region::count();
         $data['videos'] = Video::count();
