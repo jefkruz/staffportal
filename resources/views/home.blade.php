@@ -243,7 +243,7 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($event->title)}}
 {{--                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>--}}
-                                                                  <a  href="" class="btn btn-sm btn-primary">SEND GREETINGS</a>
+{{--                                                                  <a  href="" class="btn btn-sm btn-primary">SEND GREETINGS</a>--}}
                                                               </div>
                                                           </div>
                                                       </a>
