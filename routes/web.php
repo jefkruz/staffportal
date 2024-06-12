@@ -137,11 +137,14 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::get('edit/{id}', [StaffEventsController::class, 'edit'])->name('staff-events.edit');
         Route::post('delete/{id}', [StaffEventsController::class, 'destroy'])->name('staff-events.delete');
         Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
+        Route::post('upload/image', [StaffEventsController::class, 'uploadImage'])->name('staff-events.uploadImage');
+        Route::delete('image/delete/{id}', [StaffEventsController::class, 'deleteImage'])->name('staff-events.deleteImage');
+
+
     });
 
     Route::group(['prefix' => 'event-category'], function(){
         Route::post('store/events', [StaffEventsController::class, 'storeCategory'])->name('event-categories.store');
-//        Route::get('edit/{id}', [StaffEventsController::class, 'edit'])->name('staff-events.edit');
         Route::delete('delete/{id}', [StaffEventsController::class, 'deleteCategory'])->name('event-categories.delete');
 //        Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
     });

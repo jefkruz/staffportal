@@ -12,4 +12,9 @@ class StaffEvent extends Model
     {
         return EventCategory::find($this->category_id);
     }
+
+    public function images()
+    {
+        return $this->hasMany(EventImage::class);
+    }
 }

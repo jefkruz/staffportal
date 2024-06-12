@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventCategory;
+use App\Models\EventImage;
+use App\Models\School;
+use App\Models\SchoolImage;
 use App\Models\StaffEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class StaffEventsController extends Controller
@@ -65,6 +69,7 @@ class StaffEventsController extends Controller
         $data['staff_events_menu'] = true;
         $data['categories'] = EventCategory::latest()->get();
         $data['res'] = StaffEvent::findOrFail($id);
+        $data['image'] = EventImage::where('staff_event_id',$id)->first();
         return view('backend.staff_events.edit', $data);
     }
 
@@ -90,6 +95,7 @@ class StaffEventsController extends Controller
             $path = $file->store('staff_events', env('DEFAULT_DISK'));
         }
 
+
         $p = new StaffEvent();
         $p->title = $request->title;
         $p->category_id = $request->category_id;
@@ -97,6 +103,7 @@ class StaffEventsController extends Controller
         $p->content = $request->post_body;
         $p->image = $path;
         $p->save();
+
 
         return to_route('staff-events.index')->with('message', 'Event added');
     }
@@ -136,7 +143,59 @@ class StaffEventsController extends Controller
         $p->image = $path;
         $p->save();
 
+//        $record = StaffEvent::findOrFail($p->id);
+
+        // Clear the existing academic profiles
+//        $record->subImages()->delete();
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $path = $file->store('staff_events', env('DEFAULT_DISK'));
+                $new = new EventImage();
+                $new->staff_event_id = $p->id;
+                $new->image = $path;
+                $new->save();
+            }
+        }
+
         return to_route('staff-events.index')->with('message', 'Event updated');
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'staff_event_id' => 'required',
+            'image' => 'required'
+        ]);
+
+        $event = StaffEvent::findOrFail($request->staff_event_id);
+
+        $image = $request->image;
+        $arr1 = explode(";", $image);
+        $arr2 = explode(",", $arr1[1]);
+        $data = base64_decode($arr2[1]);
+
+
+        $filename = Str::slug($event->name) . '-' . time() . '.png';
+        $path = 'staff_events/' . $filename;
+
+        Storage::disk(env('DEFAULT_DISK'))->put(
+            $path,
+            $data
+        );
+
+        $pic = new EventImage();
+        $pic->staff_event_id = $event->id;
+        $pic->path = url($path);
+        $pic->save();
+
+        return back()->with('message', 'Image uploaded');
+    }
+
+    public function deleteImage($id)
+    {
+        EventImage::find($id)->delete();
+        return back()->with('message', 'Image deleted');
     }
 
     public function delete($id)
