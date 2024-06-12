@@ -18,7 +18,7 @@
                                     <th> CATEGORY</th>
                                     <th> TITLE</th>
                                     <th>IMAGE</th>
-                                    <th>DATE CREATED</th>
+
                                     <th>ACTION</th>
                                 </tr>
                                 </thead>
@@ -33,7 +33,6 @@
                                             <img src="{{url($post->image)}}" width="100px">
 
                                         </td>
-                                        <td>{{$post->created_at->diffForHumans()}}</td>
                                         <td>
                                             <a href="{{route('staff-events.edit', $post->id)}}" class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Edit</a>
                                             <form method="POST" action="{{route('staff-events.delete',$post->id)}}" onsubmit="return confirm('Are You sure you want to delete')">
