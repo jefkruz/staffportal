@@ -9,7 +9,7 @@ $isDirector = session('user')->isDirector();
 $isDeptHead = session('user')->isDepartmentHead();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,13 +27,17 @@ $isDeptHead = session('user')->isDepartmentHead();
     <link rel="apple-touch-icon" sizes="180x180" href="{{url('assets/img/icon/192x192.png')}}">
     <!-- BOOTSTRAP CSS -->
 
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     @yield('styles')
 
     <link id="style" href="{{url('assets/css/bootstrap.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="manifest" href="{{url('__manifest.json')}}">
-</head>
+
+    @include('includes.translate')
+     </head>
 
     <body>
 
@@ -63,99 +67,100 @@ $isDeptHead = session('user')->isDepartmentHead();
             {{ucwords($page_title)}}
         </div>
         <div class="right">
-{{--            <a href="#" class="headerButton toggle-searchbox">--}}
-{{--                <ion-icon name="globe-outline" ></ion-icon>--}}
-{{--            </a>--}}
-            <div class="d-flex country">
-                <a class="nav-link icon text-center" data-bs-target="#country-selector"
-                   data-bs-toggle="modal">
-                    <ion-icon name="globe-outline" class="fe fe-globe"></ion-icon>
 
-                </a>
+            <div class="d-flex country">
+
+                <a href="javascript:void(0);" class="header-link dropdown-toggle " data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"  class="img-fluid"  width="40px" > </a>
+                 <ul class="main-header-dropdown dropdown-menu dropdown-menu-end " style="position: absolute;
+                  inset: 0px 0px auto auto; margin: 0px; transform:
+                 translate3d(-488px, 75.5px, 0px);" data-popper-placement="bottom-end">
+
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2">
+                                 <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"> </span> English </a>
+                     </li>
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
+                             <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/spain_flag.jpg" alt="img"> </span> Spanish </a>
+                     </li>
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/french_flag.jpg" alt="img"> </span> French </a> </li>
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/germany_flag.jpg" alt="img"> </span> German </a> </li>
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/italy_flag.jpg" alt="img"> </span> Italian </a> </li>
+                     <li>
+                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/russia_flag.jpg" alt="img"> </span> Russian </a> </li>
+                 </ul>
             </div>
 
-            <!-- Country-selector modal-->
-{{--            <div class="modal fade" id="country-selector">--}}
-{{--                <div class="modal-dialog modal-dialog-centered" role="document">--}}
-{{--                    <div class="modal-content country-select-modal">--}}
-{{--                        <div class="modal-header">--}}
-{{--                            <h6 class="modal-title">Choose Country</h6><button aria-label="Close" class="btn-close"--}}
-{{--                                                                               data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>--}}
-{{--                        </div>--}}
-{{--                        <div class="modal-body">--}}
-{{--                            <ul class="row p-3">--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block active">--}}
-{{--                                    <span class="country-selector"><img alt="" src="../assets/images/flags-img/us_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>USA--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/italy_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Italy--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/spain_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Spain--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/india_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>India--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/french_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>French--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/russia_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Russia--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/germany_flag.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Germany--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt=""--}}
-{{--                                                                        src="../assets/images/flags-img/argentina.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Argentina--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt="" src="../assets/images/flags-img/malaysia.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Malaysia--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li class="col-lg-6 mb-2">--}}
-{{--                                    <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">--}}
-{{--                                    <span class="country-selector"><img alt="" src="../assets/images/flags-img/turkey.jpg"--}}
-{{--                                                                        class="me-3 language"></span>Turkey--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="d-flex country" aria-labelledby="dropdownLanguage">
+                <select class="form-select form-control"
+                        onchange="doGTranslate(this);">
+                    <option class='form-control' value="" data-img="../assets/images/flags/us_flag.jpg"></option>
+                    <option value="en|af">Afrikaans</option>
+                    <option value="en|sq">Albanian</option>
+                    <option value="en|ar">Arabic</option>
+                    <option value="en|hy">Armenian</option>
+                    <option value="en|az">Azerbaijani</option>
+                    <option value="en|eu">Basque</option>
+                    <option value="en|be">Belarusian</option>
+                    <option value="en|bg">Bulgarian</option>
+                    <option value="en|ca">Catalan</option>
+                    <option value="en|zh-CN">Chinese (Simplified)</option>
+                    <option value="en|zh-TW">Chinese (Traditional)</option>
+                    <option value="en|hr">Croatian</option>
+                    <option value="en|cs">Czech</option>
+                    <option value="en|da">Danish</option>
+                    <option value="en|nl">Dutch</option>
+                    <option value="en|en">English</option>
+                    <option value="en|et">Estonian</option>
+                    <option value="en|tl">Filipino</option>
+                    <option value="en|fi">Finnish</option>
+                    <option value="en|fr">French</option>
+                    <option value="en|gl">Galician</option>
+                    <option value="en|ka">Georgian</option>
+                    <option value="en|de">German</option>
+                    <option value="en|el">Greek</option>
+                    <option value="en|ht">Haitian Creole</option>
+                    <option value="en|iw">Hebrew</option>
+                    <option value="en|hi">Hindi</option>
+                    <option value="en|hu">Hungarian</option>
+                    <option value="en|is">Icelandic</option>
+                    <option value="en|id">Indonesian</option>
+                    <option value="en|ga">Irish</option>
+                    <option value="en|it">Italian</option>
+                    <option value="en|ja">Japanese</option>
+                    <option value="en|ko">Korean</option>
+                    <option value="en|lv">Latvian</option>
+                    <option value="en|lt">Lithuanian</option>
+                    <option value="en|mk">Macedonian</option>
+                    <option value="en|ms">Malay</option>
+                    <option value="en|mt">Maltese</option>
+                    <option value="en|no">Norwegian</option>
+                    <option value="en|fa">Persian</option>
+                    <option value="en|pl">Polish</option>
+                    <option value="en|pt">Portuguese</option>
+                    <option value="en|ro">Romanian</option>
+                    <option value="en|ru">Russian</option>
+                    <option value="en|sr">Serbian</option>
+                    <option value="en|sk">Slovak</option>
+                    <option value="en|sl">Slovenian</option>
+                    <option value="en|es">Spanish</option>
+                    <option value="en|sw">Swahili</option>
+                    <option value="en|sv">Swedish</option>
+                    <option value="en|th">Thai</option>
+                    <option value="en|tr">Turkish</option>
+                    <option value="en|uk">Ukrainian</option>
+                    <option value="en|ur">Urdu</option>
+                    <option value="en|vi">Vietnamese</option>
+                    <option value="en|cy">Welsh</option>
+                    <option value="en|yi">Yiddish</option>
+                </select>
+                <div id="google_translate_element2"></div>
+
+            </div>
 
             <a href="#" class="headerButton toggle-searchbox">
                 <ion-icon name="search-outline"></ion-icon>
@@ -499,6 +504,7 @@ $isDeptHead = session('user')->isDepartmentHead();
 
     <!-- Bootstrap -->
 {{--<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>--}}
+
     <!-- JQUERY JS -->
     <script src="{{url('assets/js/jquery.min.js')}}"></script>
 
@@ -593,6 +599,8 @@ $isDeptHead = session('user')->isDepartmentHead();
 <!-- Base Js File -->
 <script src="{{url('assets/js/base.js')}}"></script>
 
-</body>
+
+
+    </body>
 
 </html>
