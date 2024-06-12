@@ -206,7 +206,8 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($birthday->fullname())}}
                                                                   <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
-                                                                  <button  href="{{route('greetings', $birthday->portalID)}}" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+                                                                  <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+
                                                               </div>
                                                           </div>
                                                       </a>
@@ -230,7 +231,7 @@
                                       </h2>
                                   </div>
                                   <div class="card-body">
-                                      <div class=" overflow-auto"  style="max-height: 300px">
+                                      <div class=" overflow-auto"  style="max-height: 300px;overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
                                               @foreach($events as $event)
@@ -243,8 +244,7 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($event->title)}}
 {{--                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>--}}
-{{--                                                                  <a  href="" class="btn btn-sm btn-primary">SEND GREETINGS</a>--}}
-                                                              </div>
+                                                                  <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
                                                           </div>
                                                       </a>
                                                   </li>

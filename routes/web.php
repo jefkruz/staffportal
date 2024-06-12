@@ -48,6 +48,7 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::post('events/accept', [EventsController::class, 'acceptEvent'])->name('acceptEvent');
 
     Route::get('profile', [StaffController::class, 'profile'])->name('profile');
+    Route::post('book/counselling', [StaffController::class, 'bookCounselling'])->name('bookCounselling');
     Route::get('staff_handbook', [HomeController::class, 'handbook'])->name('handbook');
     Route::get('counselling', [HomeController::class, 'counselling'])->name('counselling');
     Route::get('greetings/{id}', [HomeController::class, 'greetings'])->name('greetings');

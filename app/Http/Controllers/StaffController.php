@@ -9,6 +9,7 @@ use App\Models\Feedback;
 use App\Models\JobFamily;
 use App\Models\Role;
 use App\Models\Staff;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
@@ -387,6 +388,10 @@ class StaffController extends Controller
 
     }
 
+    public function bookCounselling(Request $request)
+    {
+        $staff = Session::get('user');
 
+     }
 
 }
