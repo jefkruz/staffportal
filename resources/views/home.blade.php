@@ -244,7 +244,7 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($event->title)}}
                                                                   <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>
-{{--                                                                <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>--}}
+                                                                <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">READ MORE</button>
                                                           </div>
                                                       </a>
                                                   </li>
