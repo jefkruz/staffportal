@@ -10,6 +10,6 @@ class StaffEvent extends Model
     use HasFactory;
     public function category()
     {
-        return StaffCategory::find($this->category_id);
+        return EventCategory::find($this->category_id);
     }
 }
