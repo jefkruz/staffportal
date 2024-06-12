@@ -10,6 +10,7 @@
                    <h3>Staff Counselling</h3>
                </div>
                <div class="card-body">
+                   @include('includes.alerts')
                    <div class="row">
                        <div class="section mt-1 mb-5">
                            <form action="{{route('bookCounselling')}}" method="POST">
@@ -34,7 +35,7 @@
 
                                <div class="form-group boxed" id="manual" style="display: none">
                                    <div class="input-wrapper">
-                                       <input type="text" class="form-control"  placeholder="Enter Topic">
+                                       <input type="text" class="form-control" name="title"  placeholder="Enter Topic">
                                        <i class="clear-input">
                                            <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
                                        </i>

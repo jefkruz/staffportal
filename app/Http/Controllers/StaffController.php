@@ -9,6 +9,7 @@ use App\Models\Feedback;
 use App\Models\JobFamily;
 use App\Models\Role;
 use App\Models\Staff;
+use App\Models\StaffCounselling;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -390,7 +391,20 @@ class StaffController extends Controller
 
     public function bookCounselling(Request $request)
     {
+        $request->validate([
+           'topic'=>'required',
+        ]);
+
+        $topic = $request->topic;
+        if ($topic == 'others'){
+            $topic = $request->title;
+        }
         $staff = Session::get('user');
+        $counselling = new StaffCounselling();
+        $counselling->portal_id = $staff->portalID;
+        $counselling->topic = $topic;
+        $counselling->save();
+        return back()->with('message', 'We will get back to you with 7 days.');
 
      }
 
