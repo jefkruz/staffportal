@@ -10,11 +10,11 @@
 
                     <div class="col-lg-8 p-2">
                         <div class="card">
-                            <img  class="card-img-top"  src="{{url($event->image)}}">
+                            <img  class="img-thumbnail"  src="{{url($event->image)}}">
 
 
                             <div class="card-body">
-                                <h6 class="card-title">{{ (Str::limit($event->name, 50)) }}</h6>
+                                <h6 class="card-title">{{ (Str::limit($event->title, 50)) }}</h6>
                                 {!! html_entity_decode($event->content) !!}
 
                             </div>
