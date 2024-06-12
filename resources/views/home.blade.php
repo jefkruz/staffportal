@@ -206,7 +206,7 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($birthday->fullname())}}
                                                                   <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
-                                                                  <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+                                                                  <button onclick="window.location.href=''" class="btn btn-sm btn-primary">SEND GREETINGS</button>
 
                                                               </div>
                                                           </div>
@@ -231,14 +231,14 @@
                                       </h2>
                                   </div>
                                   <div class="card-body">
-                                      <div class=" overflow-auto"  style="max-height: 500px;overflow-y: scroll; scrollbar-width: thin;">
+                                      <div class=" overflow-auto"  style="overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
 
                                                   @foreach($cats as $cat)
                                                   @if($cat->events()->count() > 0)
                                                    <h3 class="text-center m-3">{{ucwords($cat->name)}}</h3>
-                                                  <hr>
+                                                    <hr>
 
 
                                                           <div id="carouselExample" class="carousel slide">
@@ -246,9 +246,12 @@
 
                                                                   @foreach($cat->events() as $index => $event)
                                                                   <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" >
                                                                       <img src="{{url($event->image)}}" class="d-block w-100" alt="image {{ $index + 1 }}">
                                                                       <h4 class="mt-2"> {{ucwords($event->title)}}</h4>
-                                                                      <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>
+                                                                      </a>
+                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" class="btn  btn-sm btn-primary">View More </a>
+
 
                                                                   </div>
 
@@ -263,19 +266,7 @@
                                                                   <span class="visually-hidden">Next</span>
                                                               </button>
                                                           </div>
-{{--                                                          <li>--}}
-{{--                                                              <a href="#" class="item">--}}
-{{--                                                                  <div class="imageWrapper">--}}
-{{--                                                                      <img src="{{url($event->image)}}" alt="image"    class="img-thumbnail">--}}
-{{--                                                                  </div>--}}
-{{--                                                                  <div class="in">--}}
-{{--                                                                      <div class="flex-column">--}}
-{{--                                                                          {{ucwords($event->title)}}--}}
-{{--                                                                          <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>--}}
-{{--                                                                        <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>--}}
-{{--                                                                      </div>--}}
-{{--                                                                  </a>--}}
-{{--                                                              </li>--}}
+
 
 
                                                   @endif

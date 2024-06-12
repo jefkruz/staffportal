@@ -49,9 +49,14 @@ class HomeController extends Controller
         return view('handbook', $data);
     }
 
-    public function greetings($id)
+    public function greetings($id,$slug)
     {
-        return $id;
+        $event = StaffEvent::whereIdAndSlug($id, $slug)->firstOrFail();
+
+        $data['page_title'] = 'View More';
+        $data['back'] = true;
+        $data['event'] = $event;
+        return view('view_event', $data);
     }
     public function counselling()
     {
