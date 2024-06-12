@@ -283,7 +283,7 @@ $isDeptHead = session('user')->isDepartmentHead();
                             </div>
                             <div class="in">
                                 <div>Staff Handbook</div>
-                                <span class="badge badge-danger">New</span>
+
                             </div>
 
                         </a>
