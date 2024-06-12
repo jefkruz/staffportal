@@ -247,7 +247,11 @@
                                                                   @foreach($cat->events() as $index => $event)
                                                                   <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                                                       <img src="{{url($event->image)}}" class="d-block w-100" alt="image {{ $index + 1 }}">
+                                                                      <h4 class="mt-2"> {{ucwords($event->title)}}</h4>
+                                                                      <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>
+
                                                                   </div>
+
                                                                   @endforeach
                                                               </div>
                                                               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
