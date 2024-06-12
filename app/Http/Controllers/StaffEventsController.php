@@ -63,6 +63,7 @@ class StaffEventsController extends Controller
     {
         $data['page_title'] = 'Edit Event';
         $data['staff_events_menu'] = true;
+        $data['categories'] = EventCategory::latest()->get();
         $data['res'] = StaffEvent::findOrFail($id);
         return view('backend.staff_events.edit', $data);
     }
@@ -70,6 +71,7 @@ class StaffEventsController extends Controller
     public function create()
     {
         $data['page_title'] = 'Create New Event';
+        $data['categories'] = EventCategory::latest()->get();
         $data['staff_events_menu'] = true;
         return view('backend.staff_events.create', $data);
     }
@@ -78,6 +80,7 @@ class StaffEventsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'category_id' => 'required',
             'post_body' => 'required'
         ]);
 
@@ -89,6 +92,7 @@ class StaffEventsController extends Controller
 
         $p = new StaffEvent();
         $p->title = $request->title;
+        $p->category_id = $request->category_id;
         $p->slug = Str::slug($request->title);
         $p->content = $request->post_body;
         $p->image = $path;
@@ -114,6 +118,7 @@ class StaffEventsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'category_id' => 'required',
             'post_body' => 'required'
         ]);
 
@@ -126,6 +131,7 @@ class StaffEventsController extends Controller
 
 
         $p->title = $request->title;
+        $p->category_id = $request->category_id;
         $p->content = $request->post_body;
         $p->image = $path;
         $p->save();

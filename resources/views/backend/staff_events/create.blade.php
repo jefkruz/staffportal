@@ -11,6 +11,17 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="">Category</label>
+                                    <select name="category_id" class="form-control" required>
+                                        <option value="">--Select Category--</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label for="">Title</label>
                                     <input type="text" class="form-control" name="title" placeholder="Event Title" required>
                                 </div>
