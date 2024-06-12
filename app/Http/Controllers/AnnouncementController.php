@@ -82,7 +82,7 @@ class AnnouncementController extends Controller
         $path = null;
         if($request->hasFile('file')){
             $file = $request->file('file');
-            $path = $file->store('notification_banners ', env('DEFAULT_DISK'));
+            $path = $file->store('notification_banners', env('DEFAULT_DISK'));
         }
 
         $p = new Announcement();
