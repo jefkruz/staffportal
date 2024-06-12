@@ -231,20 +231,20 @@
                                       </h2>
                                   </div>
                                   <div class="card-body">
-                                      <div class=" overflow-auto"  style="max-height: 300px;overflow-y: scroll; scrollbar-width: thin;">
+                                      <div class=" overflow-auto"  style="max-height: 500px;overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
                                               @foreach($events as $event)
                                                   <li>
                                                       <a href="#" class="item">
                                                           <div class="imageWrapper">
-                                                              <img src="{{url($event->image)}}" alt="image"  style="max-height: 60px" class="img-thumbnail imaged w64">
+                                                              <img src="{{url($event->image)}}" alt="image"   class="img-thumbnail">
                                                           </div>
                                                           <div class="in">
                                                               <div class="flex-column">
                                                                   {{ucwords($event->title)}}
 {{--                                                                  <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>--}}
-                                                                  <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+                                                                <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
                                                           </div>
                                                       </a>
                                                   </li>
