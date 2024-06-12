@@ -98,7 +98,7 @@ $isDeptHead = session('user')->isDepartmentHead();
             <div class="d-flex country" aria-labelledby="dropdownLanguage">
                 <select class="form-select form-control"
                         onchange="doGTranslate(this);">
-                    <option class='form-control' value="" data-img="../assets/images/flags/us_flag.jpg"></option>
+                    <option class='form-control' value="" >Select</option>
                     <option value="en|af">Afrikaans</option>
                     <option value="en|sq">Albanian</option>
                     <option value="en|ar">Arabic</option>
