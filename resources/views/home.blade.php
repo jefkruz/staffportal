@@ -234,8 +234,9 @@
                                       <div class=" overflow-auto"  style="max-height: 500px;overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
-                                              @if($cats && $cats->count() > 0 )
+
                                                   @foreach($cats as $cat)
+                                                  @if($cat->events()->count() > 0)
                                                    <h3>{{ucwords($cat->name)}}</h3>
 
                                                       @foreach($cat->events() as $event)
@@ -255,11 +256,11 @@
                                                               </li>
 
                                                       @endforeach
-
+                                                  @endif
                                                   @endforeach
 
 
-                                                  @endif
+
 
                                           </ul>
                                       </div>
