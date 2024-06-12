@@ -9,4 +9,9 @@ class EventCategory extends Model
 {
     use HasFactory;
     protected $guarded;
+
+    public function events()
+    {
+        return StaffEvent::where('category_id', $this->id)->get();
+    }
 }

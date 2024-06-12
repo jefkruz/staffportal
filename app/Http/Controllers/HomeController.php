@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Models\EventCategory;
 use App\Models\JobFamily;
 use App\Models\Event;
 use App\Models\Meeting;
@@ -26,6 +27,7 @@ class HomeController extends Controller
         $data['birthdays'] = User::where('dob','like', '%'.$date.'%')->where('enabled', '1')->get();
         $data['dash_menu'] = true;
         $data['events'] = StaffEvent::latest()->get();
+        $data['cats'] = EventCategory::latest()->get();
        $data['video'] = Video::where('status','active')->first();
        $data['meeting'] = Meeting::where('status','active')->first();
         $data['page_title'] = 'Home';

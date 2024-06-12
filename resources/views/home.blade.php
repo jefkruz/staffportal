@@ -234,21 +234,32 @@
                                       <div class=" overflow-auto"  style="max-height: 500px;overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
-                                              @foreach($events as $event)
-                                                  <li>
-                                                      <a href="#" class="item">
-                                                          <div class="imageWrapper">
-                                                              <img src="{{url($event->image)}}" alt="image"   class="img-thumbnail">
-                                                          </div>
-                                                          <div class="in">
-                                                              <div class="flex-column">
-                                                                  {{ucwords($event->title)}}
-                                                                  <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>
-                                                                <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>
-                                                          </div>
-                                                      </a>
-                                                  </li>
-                                              @endforeach
+                                              @if($cats)
+                                                  @foreach($cats as $cat)
+                                                   <h3>{{ucwords($cat->name)}}</h3>
+
+                                                      @foreach($cat->events() as $event)
+
+                                                          <li>
+                                                              <a href="#" class="item">
+                                                                  <div class="imageWrapper">
+                                                                      <img src="{{url($event->image)}}" alt="image"   class="img-thumbnail">
+                                                                  </div>
+                                                                  <div class="in">
+                                                                      <div class="flex-column">
+                                                                          {{ucwords($event->title)}}
+                                                                          <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>
+                                                                        <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>
+                                                                      </div>
+                                                                  </a>
+                                                              </li>
+
+                                                      @endforeach
+
+                                                  @endforeach
+
+
+                                                  @endif
 
                                           </ul>
                                       </div>

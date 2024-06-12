@@ -68,32 +68,32 @@ $isDeptHead = session('user')->isDepartmentHead();
         </div>
         <div class="right">
 
-            <div class="d-flex country">
+{{--            <div class="d-flex country">--}}
 
-                <a href="javascript:void(0);" class="header-link dropdown-toggle " data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"  class="img-fluid"  width="40px" > </a>
-                 <ul class="main-header-dropdown dropdown-menu dropdown-menu-end " style="position: absolute;
-                  inset: 0px 0px auto auto; margin: 0px; transform:
-                 translate3d(-488px, 75.5px, 0px);" data-popper-placement="bottom-end">
+{{--                <a href="javascript:void(0);" class="header-link dropdown-toggle " data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                    <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"  class="img-fluid"  width="40px" > </a>--}}
+{{--                 <ul class="main-header-dropdown dropdown-menu dropdown-menu-end " style="position: absolute;--}}
+{{--                  inset: 0px 0px auto auto; margin: 0px; transform:--}}
+{{--                 translate3d(-488px, 75.5px, 0px);" data-popper-placement="bottom-end">--}}
 
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2">
-                                 <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"> </span> English </a>
-                     </li>
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                             <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/spain_flag.jpg" alt="img"> </span> Spanish </a>
-                     </li>
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/french_flag.jpg" alt="img"> </span> French </a> </li>
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/germany_flag.jpg" alt="img"> </span> German </a> </li>
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/italy_flag.jpg" alt="img"> </span> Italian </a> </li>
-                     <li>
-                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/russia_flag.jpg" alt="img"> </span> Russian </a> </li>
-                 </ul>
-            </div>
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2">--}}
+{{--                                 <img src="{{url('images/flags/us_flag.jpg')}}" alt="img"> </span> English </a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">--}}
+{{--                             <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/spain_flag.jpg" alt="img"> </span> Spanish </a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/french_flag.jpg" alt="img"> </span> French </a> </li>--}}
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/germany_flag.jpg" alt="img"> </span> German </a> </li>--}}
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/italy_flag.jpg" alt="img"> </span> Italian </a> </li>--}}
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"> <span class="avatar avatar-xs lh-1 me-2"> <img src="../assets/images/flags/russia_flag.jpg" alt="img"> </span> Russian </a> </li>--}}
+{{--                 </ul>--}}
+{{--            </div>--}}
 
             <div class="d-flex country" aria-labelledby="dropdownLanguage">
                 <select class="form-select form-control"

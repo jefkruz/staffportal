@@ -14,7 +14,7 @@
     </style>
 
     <script type="text/javascript">
-        function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en',autoDisplay: false}, 'google_translate_element2');}
+        function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en',}, 'google_translate_element2');}
     </script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
 
 
