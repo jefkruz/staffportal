@@ -234,7 +234,7 @@
                                       <div class=" overflow-auto"  style="max-height: 500px;overflow-y: scroll; scrollbar-width: thin;">
 
                                           <ul class="listview image-listview media flush ">
-                                              @if($cats)
+                                              @if($cats && $cats->count() > 0 )
                                                   @foreach($cats as $cat)
                                                    <h3>{{ucwords($cat->name)}}</h3>
 
