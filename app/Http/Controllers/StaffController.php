@@ -404,7 +404,7 @@ class StaffController extends Controller
         $counselling->portal_id = $staff->portalID;
         $counselling->topic = $topic;
         $counselling->save();
-        return back()->with('message', 'We will get back to you with 7 days.');
+        return back()->with('message', 'We will get back to you within 7 days.');
 
      }
 
