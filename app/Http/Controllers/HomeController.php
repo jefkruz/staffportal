@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\EventCategory;
+use App\Models\EventImage;
 use App\Models\JobFamily;
 use App\Models\Event;
 use App\Models\Meeting;
@@ -53,9 +54,11 @@ class HomeController extends Controller
     {
         $event = StaffEvent::whereIdAndSlug($id, $slug)->firstOrFail();
 
+
         $data['page_title'] = 'View More';
         $data['back'] = true;
         $data['event'] = $event;
+        $data['images'] = EventImage::where('staff_event_id', $event->id)->get();
         return view('view_event', $data);
     }
     public function counselling()
