@@ -237,7 +237,7 @@
 
                                                   @foreach($cats as $cat)
                                                   @if($cat->events()->count() > 0)
-                                                   <h3 class="text-center">{{ucwords($cat->name)}}</h3>
+                                                   <h3 class="text-center m-3">{{ucwords($cat->name)}}</h3>
                                                   <hr>
 
 
