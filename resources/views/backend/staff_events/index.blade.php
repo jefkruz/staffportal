@@ -26,7 +26,7 @@
                                 @foreach($infos as $i => $post)
                                     <tr>
                                         <td>{{$i + 1}}</td>
-                                        <td>{{$post->category()->name}}</td>
+                                        <td>{{$post->category()->name ?? ''}}</td>
                                         <td>{{$post->title}}</td>
 
                                         <td>
