@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EventCategory;
 use App\Models\StaffEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -15,6 +16,7 @@ class StaffEventsController extends Controller
         $data['page_title'] = 'Staff Events';
         $data['staff_events_menu'] = true;
         $data['infos'] = StaffEvent::latest()->get();
+        $data['categories'] = EventCategory::latest()->get();
         return view('backend.staff_events.index', $data);
     }
 
@@ -95,6 +97,19 @@ class StaffEventsController extends Controller
         return to_route('staff-events.index')->with('message', 'Event added');
     }
 
+    public function storeCategory(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+        $p = new EventCategory();
+        $p->name = $request->name;
+        $p->save();
+
+        return to_route('staff-events.index')->with('message', 'Event  Category added');
+    }
+
     public function update($id, Request $request)
     {
         $request->validate([
@@ -126,6 +141,14 @@ class StaffEventsController extends Controller
         }
         $p->delete();
         return back()->with('message', 'Event deleted');
+
+    }
+    public function deleteCategory($id)
+    {
+        $p = EventCategory::findOrFail($id);
+
+        $p->delete();
+        return back()->with('message', 'Category deleted');
 
     }
 }

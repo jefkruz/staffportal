@@ -139,6 +139,13 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
     });
 
+    Route::group(['prefix' => 'event-category'], function(){
+        Route::post('store/events', [StaffEventsController::class, 'storeCategory'])->name('event-categories.store');
+//        Route::get('edit/{id}', [StaffEventsController::class, 'edit'])->name('staff-events.edit');
+        Route::delete('delete/{id}', [StaffEventsController::class, 'deleteCategory'])->name('event-categories.delete');
+//        Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
+    });
+
     Route::group(['prefix' => 'regions'], function(){
         Route::get('/', [RegionController::class, 'index'])->name('regions.index');
         Route::post('/', [RegionController::class, 'store'])->name('regions.store');
