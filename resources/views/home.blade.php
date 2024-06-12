@@ -240,23 +240,40 @@
                                                    <h3 class="text-center">{{ucwords($cat->name)}}</h3>
                                                   <hr>
 
-                                                      @foreach($cat->events() as $event)
 
-                                                          <li>
-                                                              <a href="#" class="item">
-                                                                  <div class="imageWrapper">
-                                                                      <img src="{{url($event->image)}}" alt="image"    class="img-thumbnail">
+                                                          <div id="carouselExample" class="carousel slide">
+                                                              <div class="carousel-inner">
+
+                                                                  @foreach($cat->events() as $index => $event)
+                                                                  <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                                                      <img src="{{url($event->image)}}" class="d-block w-100" alt="image {{ $index + 1 }}">
                                                                   </div>
-                                                                  <div class="in">
-                                                                      <div class="flex-column">
-                                                                          {{ucwords($event->title)}}
-                                                                          <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>
-                                                                        <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>
-                                                                      </div>
-                                                                  </a>
-                                                              </li>
+                                                                  @endforeach
+                                                              </div>
+                                                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                  <span class="visually-hidden">Previous</span>
+                                                              </button>
+                                                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                  <span class="visually-hidden">Next</span>
+                                                              </button>
+                                                          </div>
+{{--                                                          <li>--}}
+{{--                                                              <a href="#" class="item">--}}
+{{--                                                                  <div class="imageWrapper">--}}
+{{--                                                                      <img src="{{url($event->image)}}" alt="image"    class="img-thumbnail">--}}
+{{--                                                                  </div>--}}
+{{--                                                                  <div class="in">--}}
+{{--                                                                      <div class="flex-column">--}}
+{{--                                                                          {{ucwords($event->title)}}--}}
+{{--                                                                          <div class="text-muted"> {!! html_entity_decode($event->content) !!}</div>--}}
+{{--                                                                        <br> <button onclick="window.location.href='{{ route('greetings', $birthday->portalID) }}'" class="btn btn-sm btn-success">READ MORE</button>--}}
+{{--                                                                      </div>--}}
+{{--                                                                  </a>--}}
+{{--                                                              </li>--}}
 
-                                                      @endforeach
+
                                                   @endif
                                                   @endforeach
 
