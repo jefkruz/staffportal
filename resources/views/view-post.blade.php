@@ -12,8 +12,8 @@
                     <div class="card">
                         <img src="{{url($post->banner ?? '') }}" class="img-thumbnail"  alt="">
                         <div class="card-body">
-                            <h6 class="card-title">{{ (Str::limit($post->title, 50)) }}</h6>
-                            {!! html_entity_decode($post->body) !!}
+                            <h6 class="card-title">{{ (Str::limit($post->name, 50)) }}</h6>
+                            {!! html_entity_decode($post->content) !!}
 
                         </div>
                     </div>
