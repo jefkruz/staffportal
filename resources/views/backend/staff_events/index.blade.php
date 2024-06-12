@@ -15,6 +15,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th> CATEGORY</th>
                                     <th> TITLE</th>
                                     <th>IMAGE</th>
                                     <th>DATE CREATED</th>
@@ -25,7 +26,9 @@
                                 @foreach($infos as $i => $post)
                                     <tr>
                                         <td>{{$i + 1}}</td>
+                                        <td>{{$post->category()->name}}</td>
                                         <td>{{$post->title}}</td>
+
                                         <td>
                                             <img src="{{url($post->image)}}" width="100px">
 
