@@ -15,7 +15,7 @@
 
                             <div class="card-body">
                                 <h6 class="card-title">{{ (Str::limit($event->name, 50)) }}</h6>
-                                {!! html_entity_decode($event->body) !!}
+                                {!! html_entity_decode($event->content) !!}
 
                             </div>
                         </div>
