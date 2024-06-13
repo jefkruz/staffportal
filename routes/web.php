@@ -135,7 +135,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'pilot'], function(){
         Route::post('/', [StaffEventsController::class, 'store'])->name('staff-events.store');
         Route::get('create', [StaffEventsController::class, 'create'])->name('staff-events.create');
         Route::get('edit/{id}', [StaffEventsController::class, 'edit'])->name('staff-events.edit');
-        Route::post('delete/{id}', [StaffEventsController::class, 'destroy'])->name('staff-events.delete');
+        Route::delete('delete/{id}', [StaffEventsController::class, 'delete'])->name('staff-events.delete');
         Route::patch('update/{id}', [StaffEventsController::class, 'update'])->name('staff-events.update');
         Route::post('upload/image', [StaffEventsController::class, 'uploadImage'])->name('staff-events.uploadImage');
         Route::delete('image/delete/{id}', [StaffEventsController::class, 'deleteImage'])->name('staff-events.deleteImage');

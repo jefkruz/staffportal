@@ -201,9 +201,9 @@ class StaffEventsController extends Controller
     public function delete($id)
     {
         $p = StaffEvent::findOrFail($id);
-        foreach($p->comments() as $comment){
-            $comment->delete();
-        }
+//        foreach($p->comments() as $comment){
+//            $comment->delete();
+//        }
         $p->delete();
         return back()->with('message', 'Event deleted');
 
