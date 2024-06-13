@@ -206,7 +206,7 @@
                                                               <div class="flex-column">
                                                                   {{ucwords($birthday->fullname())}}
                                                                   <div class="text-muted">{{ucwords($birthday->department->deptName)}}</div>
-                                                                  <button onclick="window.location.href=''" class="btn btn-sm btn-primary">SEND GREETINGS</button>
+                                                                  <button onclick="window.location.href='{{route('birthday',$birthday->portalID)}}'" class="btn btn-sm btn-primary">SEND GREETINGS</button>
 
                                                               </div>
                                                           </div>

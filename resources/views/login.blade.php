@@ -82,8 +82,8 @@
 
                         <div class="form-button-group ">
                             <a  target="_blank" href="https://accounts.kingsch.at/?client_id=com.kingschat&scopes=[%22conference_calls%22]&post_redirect=true&redirect_uri={{route('authLogin')}}" class="btn btn-outline-primary btn-lg btn-block">
-                                <img src="https://kingsch.at/h/css/images/favicon.ico" alt="" class="img-fluid">
-                                    Login with KingsChat
+                                <img src="https://kingsch.at/h/css/images/favicon.ico" alt="" class="img-fluid ">
+                                  Login with KingsChat
                           </a>                        </div>
 
                             </form>

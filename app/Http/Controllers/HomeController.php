@@ -10,6 +10,7 @@ use App\Models\Event;
 use App\Models\Meeting;
 use App\Models\Region;
 use App\Models\Slide;
+use App\Models\StaffComment;
 use App\Models\StaffEvent;
 use App\Models\Stream;
 use App\Models\User;
@@ -55,6 +56,36 @@ class HomeController extends Controller
     {
         $data['page_title'] = 'Staff Counselling';
         return view('counselling', $data);
+    }
+
+    public function viewBirthday($id)
+    {
+        $staff = User::where('portalID', $id)->first();
+        $data['page_title'] = 'Birthdays';
+        $data['staff'] =  $staff;
+        return view('view-birthday', $data);
+    }
+    public function addComment($id, Request $request)
+    {
+
+        $request->validate([
+            'comment' => ['required', 'regex:/^[^<>]*$/'], // Disallow '<' and '>' characters
+        ],
+            [
+                'comment.regex' => 'The comment must not contain HTML or script tags.'
+            ]);
+        $staff = User::where('portalID',$id)->first();
+        $user = Session::get('user');
+
+        $comment = new StaffComment();
+        $comment->staff_id = $staff->id;
+        $comment->portal_id = $user->portalID;
+        $comment->name = $user->fullname();
+        $comment->picture = $user->picturePath;
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        return back();
     }
 
     public function adminDashboard()

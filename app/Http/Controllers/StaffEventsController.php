@@ -36,6 +36,7 @@ class StaffEventsController extends Controller
         $data['images'] = EventImage::where('staff_event_id', $event->id)->get();
         return view('view_event', $data);
     }
+
     public function addComment($id, $slug, Request $request)
     {
 

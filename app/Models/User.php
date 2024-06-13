@@ -58,6 +58,10 @@ class User extends Authenticatable
         return $this->belongsTo(Department::class, 'deptID','deptID');
     }
 
+    public function comments()
+    {
+        return StaffComment::where('staff_id', $this->id)->latest()->get();
+    }
 
     public function family()
     {

@@ -51,6 +51,9 @@ Route::group(['middleware' => 'isLoggedIn'], function(){
     Route::post('book/counselling', [StaffController::class, 'bookCounselling'])->name('bookCounselling');
     Route::get('staff_handbook', [HomeController::class, 'handbook'])->name('handbook');
     Route::get('counselling', [HomeController::class, 'counselling'])->name('counselling');
+
+    Route::get('birthday/{id}', [HomeController::class, 'viewBirthday'])->name('birthday');
+    Route::post('birthday/{id}', [HomeController::class, 'addComment']);
     Route::get('greetings/{id}/{slug}', [StaffEventsController::class, 'greetings'])->name('greetings');
     Route::post('greetings/{id}/{slug}', [StaffEventsController::class, 'addComment']);
     Route::get('information-center', [PostsController::class, 'showPosts'])->name('posts');
