@@ -233,50 +233,36 @@
                                   <div class="card-body">
                                       <div class=" overflow-auto"  style="overflow-y: scroll; scrollbar-width: thin;">
 
-                                          <ul class="listview image-listview media flush ">
-
-                                                  @foreach($cats as $cat)
+                                          <ul class="listview image-listview media flush">
+                                              @foreach($cats as $cat)
                                                   @if($cat->events()->count() > 0)
-                                                   <h3 class="text-center m-3">{{ucwords($cat->name)}}</h3>
-                                                    <hr>
+                                                      <h3 class="text-center m-3">{{ ucwords($cat->name) }}</h3>
+                                                      <hr>
 
-
-                                                          <div id="carouselExample" class="carousel slide">
-                                                              <div class="carousel-inner">
-
-                                                                  @foreach($cat->events() as $index => $event)
+                                                      <div id="carouselExample{{ $cat->id }}" class="carousel slide" data-bs-ride="carousel">
+                                                          <div class="carousel-inner">
+                                                              @foreach($cat->events() as $index => $event)
                                                                   <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" >
-                                                                      <img src="{{url($event->image)}}" class="d-block w-100" alt="image {{ $index + 1 }}">
-                                                                      <h4 class="mt-2"> {{ucwords($event->title)}}</h4>
+                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}">
+                                                                          <img src="{{ url($event->image) }}" class="d-block w-100" alt="image {{ $index + 1 }}">
+                                                                          <h4 class="mt-2">{{ ucwords($event->title) }}</h4>
                                                                       </a>
-                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" class="btn  btn-sm btn-primary">View More </a href="{{ route('greetings', [$event->id, $event->slug]) }}">
-
-
+                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" class="btn btn-sm btn-primary">View More</a>
                                                                   </div>
-
-                                                                  @endforeach
-                                                              </div>
-                                                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                                  <span class="visually-hidden">Previous</span>
-                                                              </button>
-                                                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                                  <span class="visually-hidden">Next</span>
-                                                              </button>
+                                                              @endforeach
                                                           </div>
-
-
-
+                                                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{ $cat->id }}" data-bs-slide="prev">
+                                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                              <span class="visually-hidden">Previous</span>
+                                                          </button>
+                                                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{ $cat->id }}" data-bs-slide="next">
+                                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                              <span class="visually-hidden">Next</span>
+                                                          </button>
+                                                      </div>
                                                   @endif
-                                                  @endforeach
-
-
-
-
-                                          </ul>
-                                      </div>
+                                              @endforeach
+                                          </ul>                                      </div>
 
                                   </div>
                               </div>
@@ -344,14 +330,14 @@
 @endsection
 @section('styles')
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
-{{--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">--}}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
 @endsection
 @section('scripts')
 
-{{--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>--}}
-{{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>--}}
-{{-- --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
     <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 
     <script>
