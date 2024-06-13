@@ -249,10 +249,10 @@
                                                                       <a href="{{ route('greetings', [$event->id, $event->slug]) }}" >
                                                                       <img src="{{url($event->image)}}" class="d-block w-100" alt="image {{ $index + 1 }}">
                                                                       <h4 class="mt-2"> {{ucwords($event->title)}}</h4>
-
-                                                                      <button class="btn  btn-sm btn-primary">View More </button>
-
                                                                       </a>
+                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" class="btn  btn-sm btn-primary">View More </a href="{{ route('greetings', [$event->id, $event->slug]) }}">
+
+
                                                                   </div>
 
                                                                   @endforeach
@@ -344,10 +344,14 @@
 @endsection
 @section('styles')
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+{{--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">--}}
+
 @endsection
 @section('scripts')
 
-
+{{--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>--}}
+{{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>--}}
+{{-- --}}
     <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 
     <script>

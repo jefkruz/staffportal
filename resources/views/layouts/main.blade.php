@@ -503,7 +503,7 @@ $isDeptHead = session('user')->isDepartmentHead();
 
 
     <!-- Bootstrap -->
-{{--<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>--}}
+<script src="{{url('assets/js/lib/bootstrap.min.js')}}"></script>
 
     <!-- JQUERY JS -->
     <script src="{{url('assets/js/jquery.min.js')}}"></script>
