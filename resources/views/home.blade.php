@@ -254,7 +254,7 @@
                                                                       <a href="{{ route('greetings', [$event->id, $event->slug]) }}">
                                                                           <img src="{{ url($event->image) }}" class="d-block w-100" alt="image {{ $index + 1 }}">
                                                                           <h4 class="mt-2">{{ ucwords($event->title) }}</h4>
-                                                                          <button class="btn btn-primary btn-sm float-end"> View More</button>
+                                                                          <button class="btn btn-primary  float-end"> View More</button>
                                                                       </a>
 
 {{--                                                                      <a href="{{ route('greetings', [$event->id, $event->slug]) }}" class="btn btn-sm btn-primary">View More</a>--}}
