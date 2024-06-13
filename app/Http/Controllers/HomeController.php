@@ -50,17 +50,7 @@ class HomeController extends Controller
         return view('handbook', $data);
     }
 
-    public function greetings($id,$slug)
-    {
-        $event = StaffEvent::whereIdAndSlug($id, $slug)->firstOrFail();
 
-
-        $data['page_title'] = 'View More';
-        $data['back'] = true;
-        $data['event'] = $event;
-        $data['images'] = EventImage::where('staff_event_id', $event->id)->get();
-        return view('view_event', $data);
-    }
     public function counselling()
     {
         $data['page_title'] = 'Staff Counselling';

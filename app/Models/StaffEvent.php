@@ -12,6 +12,10 @@ class StaffEvent extends Model
     {
         return EventCategory::find($this->category_id);
     }
+    public function comments()
+    {
+        return EventComment::where('event_id', $this->id)->latest()->get();
+    }
 
     public function images()
     {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EventCategory;
+use App\Models\EventComment;
 use App\Models\EventImage;
 use App\Models\School;
 use App\Models\SchoolImage;
@@ -24,36 +25,31 @@ class StaffEventsController extends Controller
         return view('backend.staff_events.index', $data);
     }
 
-    public function showPosts()
+    public function greetings($id,$slug)
     {
-//        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
-        $data['page_title'] = 'Information Centre';
-        $data['posts_menu'] = true;
-        $data['posts'] = Announcement::latest()->paginate(9);
-        return view('information-center', $data);
-    }
+        $event = StaffEvent::whereIdAndSlug($id, $slug)->firstOrFail();
 
-    public function viewPost($id)
-    {
-        $resource = Announcement::whereId($id)->firstOrFail();
-//        $data['notifications'] = WebNotificationsController::fetchLatestNotifications();
-        $data['post'] = $resource;
-        $data['page_title'] = 'View Post';
-        $data['posts_menu'] = true;
+
+        $data['page_title'] = 'View More';
         $data['back'] = true;
-        return view('view-post', $data);
+        $data['event'] = $event;
+        $data['images'] = EventImage::where('staff_event_id', $event->id)->get();
+        return view('view_event', $data);
     }
-
-    public function addComment($id,  Request $request)
+    public function addComment($id, $slug, Request $request)
     {
+
         $request->validate([
-            'comment' => 'required'
-        ]);
-        $post = Announcement::whereId($id)->firstOrFail();
+            'comment' => ['required', 'regex:/^[^<>]*$/'], // Disallow '<' and '>' characters
+        ],
+            [
+                'comment.regex' => 'The comment must not contain HTML or script tags.'
+            ]);
+        $event = StaffEvent::whereIdAndSlug($id, $slug)->firstOrFail();
         $user = Session::get('user');
 
-        $comment = new PostComment();
-        $comment->post_id = $post->id;
+        $comment = new EventComment();
+        $comment->event_id = $event->id;
         $comment->portal_id = $user->portalID;
         $comment->name = $user->fullname();
         $comment->picture = $user->picturePath;
@@ -143,10 +139,6 @@ class StaffEventsController extends Controller
         $p->image = $path;
         $p->save();
 
-//        $record = StaffEvent::findOrFail($p->id);
-
-        // Clear the existing academic profiles
-//        $record->subImages()->delete();
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {

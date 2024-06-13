@@ -19,28 +19,31 @@
 
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="section full mb-3">
-                                <div class="section-title">More images</div>
-                                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        @foreach($images as $index => $imageUrl)
-                                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                                <img src="{{ $imageUrl->path }}" class="d-block w-100" alt="Image {{ $index + 1 }}">
-                                            </div>
-                                        @endforeach
+                        <div class="card mt-3">
+
+                                <div class="card-header">More images</div>
+                                <div class="card-body">
+                                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @foreach($images as $index => $imageUrl)
+                                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                                    <img src="{{ $imageUrl->path }}" class="d-block w-100" alt="Image {{ $index + 1 }}">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
+
                                 </div>
 
-                            </div>
+
                         </div>
                      </div>
 
@@ -55,32 +58,32 @@
 
 
 
-{{--                                        @foreach($video->comments() as $comment)--}}
-{{--                                           <div class="pt-2 pb-2" >--}}
-{{--                                           <!-- comment block -->--}}
-{{--                                           <div class="comment-block">--}}
-{{--                                               <!--item -->--}}
-{{--                                               <div class="item">--}}
-{{--                                                   <div class="avatar">--}}
-{{--                                                       <img src="{{url($comment->picture)}}" alt="avatar" class="imaged w32 rounded">--}}
-{{--                                                   </div>--}}
-{{--                                                   <div class="in">--}}
-{{--                                                       <div class="comment-header">--}}
-{{--                                                           <h4 class="title">{{$comment->name}}</h4>--}}
-{{--                                                           <span class="time">{{$comment->created_at->diffForHumans()}}</span>--}}
-{{--                                                       </div>--}}
-{{--                                                       <div class="text">--}}
-{{--                                                           {{$comment->comment}}--}}
-{{--                                                       </div>--}}
+                                        @foreach($event->comments() as $comment)
+                                           <div class="pt-2 pb-2" >
+                                           <!-- comment block -->
+                                           <div class="comment-block">
+                                               <!--item -->
+                                               <div class="item">
+                                                   <div class="avatar">
+                                                       <img src="{{url($comment->picture)}}" alt="avatar" class="imaged w32 rounded">
+                                                   </div>
+                                                   <div class="in">
+                                                       <div class="comment-header">
+                                                           <h4 class="title">{{$comment->name}}</h4>
+                                                           <span class="time">{{$comment->created_at->diffForHumans()}}</span>
+                                                       </div>
+                                                       <div class="text">
+                                                           {{$comment->comment}}
+                                                       </div>
 
-{{--                                                   </div>--}}
-{{--                                               </div>--}}
-{{--                                               <!-- * item -->--}}
+                                                   </div>
+                                               </div>
+                                               <!-- * item -->
 
-{{--                                           </div>--}}
-{{--                                           <!-- * comment block -->--}}
-{{--                                          </div>--}}
-{{--                                          @endforeach--}}
+                                           </div>
+                                           <!-- * comment block -->
+                                          </div>
+                                          @endforeach
                                        </div>
 
                                      </div>
