@@ -18,11 +18,11 @@ class ApiController extends Controller
 
         $staff = User::where('portalID', $request->portal_id)->where('password',$request->password)->first();
         if ($staff){
-            return response(['status' => true, 200]);
+            return response(['status' => true]);
 
         }
         else{
-            return response(['status' => false, 400]);
+            return response(['status' => false]);
         }
     }
 }
