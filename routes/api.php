@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KcController;
 use Illuminate\Http\Request;
@@ -16,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('user/auth/callback', [KcController::class, 'authorizeLogin'])->name('authLogin');
+Route::post('verify', [ApiController::class, 'verify']);
 
