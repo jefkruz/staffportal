@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('verify', [ApiController::class, 'verify']);
 
+Route::post('staff/auth/callback', [KcController::class, 'authorizeLogin'])->name('authLogin');
