@@ -21,7 +21,7 @@ class ApiController extends Controller
             $data['title'] = $staff->title;
             $data['firstName'] = $staff->firstName;
             $data['lastName'] = $staff->lastName;
-            return response(['data' => $data, 'status' =>true], 200);
+            return response([ 'status' =>true,'data' => $data], 200);
 
 
         }
